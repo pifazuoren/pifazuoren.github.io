@@ -20,12 +20,12 @@ repository               : "pifazuoren/pifazuoren.github.io"
 # Site Author 
 author:
   # Biographic information
-  avatar           : "TouXiang.png"
+  avatar           : "images/TouXiang.png"
   name             : "Sun Yi"
   pronouns         : # example: "she/her"  
-  bio              : "Student
-  location         : "Earth"
-  employer         : "Red Brick University"
+  bio              : "Student"
+  location         : "SH"
+  employer         : "SUFE"
   uri              : # URL
   email            : "none@example.org" 
 
