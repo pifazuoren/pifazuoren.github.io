@@ -167,19 +167,30 @@
 
       .machine__handle {
         position: relative;
-        width: 76%;
-        height: 1.45rem;
-        margin: 0 auto -0.2rem;
-        border: 1px solid rgba(195, 182, 158, 0.95);
+        width: 74%;
+        height: 1.34rem;
+        margin: 0 auto -0.28rem;
+        border: 1px solid rgba(191, 177, 151, 0.95);
+        border-bottom-color: rgba(160, 137, 98, 0.72);
         border-radius: 0.5rem 0.5rem 0 0;
-        background: linear-gradient(
-          180deg,
-          rgba(247, 239, 225, 0.98) 0%,
-          rgba(227, 217, 197, 0.96) 100%
-        );
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.48) 0%, rgba(255, 255, 255, 0) 22%),
+          linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.2) 0%,
+            transparent 14%,
+            transparent 86%,
+            rgba(139, 113, 76, 0.12) 100%
+          ),
+          linear-gradient(180deg, rgba(244, 235, 220, 0.99) 0%, rgba(223, 212, 191, 0.98) 56%, rgba(210, 197, 171, 0.98) 100%);
         box-shadow:
           inset 0 1px 0 rgba(255, 255, 255, 0.8),
-          0 6px 10px rgba(0, 0, 0, 0.06);
+          inset 0 -8px 10px rgba(146, 121, 82, 0.18),
+          inset 18px 0 18px rgba(255, 255, 255, 0.05),
+          inset -18px 0 18px rgba(132, 107, 69, 0.08),
+          0 1px 0 rgba(255, 255, 255, 0.34),
+          0 7px 12px rgba(0, 0, 0, 0.04);
+        overflow: hidden;
         z-index: 3;
       }
 
@@ -188,35 +199,46 @@
         content: "";
         position: absolute;
         top: 0.1rem;
-        bottom: 0.12rem;
-        width: 2px;
-        background: rgba(175, 163, 141, 0.9);
-        box-shadow: 1px 0 0 rgba(255, 255, 255, 0.55);
+        bottom: 0.14rem;
+        width: 1px;
+        background: rgba(165, 151, 127, 0.92);
+        box-shadow:
+          1px 0 0 rgba(255, 255, 255, 0.45),
+          0 0 0 1px rgba(255, 255, 255, 0.06);
       }
 
       .machine__handle::before {
-        left: 24%;
+        left: 24.5%;
       }
 
       .machine__handle::after {
-        right: 24%;
+        right: 24.5%;
       }
 
       .machine__shell {
         position: relative;
         width: 100%;
-        padding: clamp(1.4rem, 2.6vw, 1.8rem) clamp(1rem, 3vw, 1.3rem)
-          clamp(1rem, 2.5vw, 1.25rem);
+        padding: clamp(1.02rem, 1.95vw, 1.28rem) clamp(0.52rem, 1.6vw, 0.68rem)
+          clamp(0.8rem, 1.7vw, 0.92rem);
         border: 1px solid rgba(184, 170, 148, 0.96);
         border-radius: 1.45rem;
-        background: linear-gradient(
-          180deg,
-          #f3ebdc 0%,
-          #eadfc9 46%,
-          #d8c8ad 100%
-        );
+        background:
+          radial-gradient(90% 130% at -8% 52%, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0) 56%),
+          radial-gradient(90% 130% at 108% 52%, rgba(153, 128, 88, 0.18) 0%, rgba(153, 128, 88, 0) 56%),
+          radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.56), transparent 18%),
+          linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.18) 0%,
+            transparent 12%,
+            transparent 88%,
+            rgba(122, 101, 68, 0.1) 100%
+          ),
+          linear-gradient(180deg, #f6eedf 0%, #eee3cf 34%, #dbcaaa 76%, #cfbd9d 100%);
         box-shadow:
           inset 1px 1px 0 rgba(255, 255, 255, 0.8),
+          inset 34px 0 38px rgba(255, 255, 255, 0.05),
+          inset -34px 0 40px rgba(132, 107, 69, 0.08),
+          inset 0 -34px 38px rgba(169, 144, 103, 0.14),
           inset -2px -2px 0 rgba(147, 130, 101, 0.18),
           0 18px 30px rgba(100, 83, 54, 0.24);
         display: grid;
@@ -228,52 +250,121 @@
       .machine__shell::before {
         content: "";
         position: absolute;
-        inset: 0.55rem;
-        border-radius: 1.1rem;
+        inset: 0.26rem;
+        border-radius: 1.24rem;
         border: 1px solid rgba(255, 255, 255, 0.44);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.36),
+          inset 0 -1px 0 rgba(143, 119, 83, 0.12);
         pointer-events: none;
       }
 
       .machine__shell::after {
         content: "";
         position: absolute;
-        left: 0.9rem;
-        right: 0.9rem;
-        bottom: -0.75rem;
-        height: 1.2rem;
+        left: 0.74rem;
+        right: 0.74rem;
+        bottom: -0.92rem;
+        height: 1.46rem;
         border-radius: 0 0 1rem 1rem;
         background: linear-gradient(180deg, rgba(181, 163, 134, 0.45), rgba(181, 163, 134, 0));
-        filter: blur(1px);
+        filter: blur(1.6px);
         z-index: -1;
       }
 
       .screen-well {
         position: relative;
-        width: min(100%, 40rem);
-        margin-top: 0.15rem;
-        padding: 0.82rem 0.9rem 0.98rem;
-        border-radius: 1.2rem;
-        background: linear-gradient(145deg, #f7f0e0 0%, #d0c0a3 100%);
+        width: min(100%, 50.5rem);
+        margin-top: 0.12rem;
+        padding: 0.66rem 0.72rem 0.84rem;
+        border-radius: 1.12rem;
+        background:
+          radial-gradient(120% 155% at -10% 50%, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0) 48%),
+          radial-gradient(120% 155% at 110% 50%, rgba(155, 125, 81, 0.18) 0%, rgba(155, 125, 81, 0) 52%),
+          linear-gradient(145deg, #f9f2e4 0%, #eadcc1 35%, #cfbd9f 100%);
         box-shadow:
-          inset 14px 14px 18px rgba(122, 101, 68, 0.2),
-          inset -9px -9px 16px rgba(255, 255, 255, 0.42);
+          inset 18px 18px 24px rgba(122, 101, 68, 0.22),
+          inset -10px -10px 16px rgba(255, 255, 255, 0.5),
+          inset 24px 0 24px rgba(255, 255, 255, 0.05),
+          inset -24px 0 24px rgba(129, 102, 64, 0.06),
+          0 2px 0 rgba(255, 255, 255, 0.22);
+        overflow: hidden;
+        isolation: isolate;
         z-index: 2;
+      }
+
+      .screen-well::before {
+        content: "";
+        position: absolute;
+        inset: 0.24rem 0.28rem 0.38rem;
+        border-radius: 0.9rem;
+        box-shadow:
+          inset 16px 16px 18px rgba(115, 90, 57, 0.12),
+          inset -8px -8px 12px rgba(255, 255, 255, 0.34),
+          inset 0 1px 0 rgba(255, 255, 255, 0.54),
+          inset 0 -1px 0 rgba(130, 104, 68, 0.16);
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .screen-well::after {
+        content: "";
+        position: absolute;
+        left: 0.74rem;
+        right: 0.74rem;
+        bottom: 0.26rem;
+        height: 0.58rem;
+        border-radius: 0 0 0.66rem 0.66rem;
+        background: linear-gradient(180deg, rgba(128, 102, 64, 0.2), rgba(128, 102, 64, 0));
+        filter: blur(0.4px);
+        opacity: 0.95;
+        pointer-events: none;
+        z-index: 0;
       }
 
       .screen-frame {
         position: relative;
         width: 100%;
         aspect-ratio: 1.42 / 1;
-        padding: 0.56rem;
+        padding: 0.46rem;
         margin: 0 auto;
         border: 1px solid #070707;
-        border-radius: 1rem;
+        border-radius: 0.88rem;
         background: linear-gradient(180deg, #363530 0%, #0f0f0f 100%);
         box-shadow:
           inset 0 0 0 1px rgba(255, 255, 255, 0.08),
-          inset 0 0 0 6px rgba(0, 0, 0, 0.22),
-          0 4px 0 rgba(0, 0, 0, 0.18);
+          inset 0 0 0 6px rgba(0, 0, 0, 0.24),
+          0 5px 0 rgba(0, 0, 0, 0.18),
+          0 12px 20px rgba(0, 0, 0, 0.12);
         display: flex;
+        z-index: 1;
+      }
+
+      .screen-frame::before {
+        content: "";
+        position: absolute;
+        inset: 0.18rem;
+        border-radius: 0.72rem;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.08),
+          inset 0 -4px 10px rgba(0, 0, 0, 0.42),
+          inset 5px 0 10px rgba(255, 255, 255, 0.03),
+          inset -5px 0 12px rgba(0, 0, 0, 0.16);
+        pointer-events: none;
+      }
+
+      .screen-frame::after {
+        content: "";
+        position: absolute;
+        left: 0.62rem;
+        right: 0.62rem;
+        bottom: -0.38rem;
+        height: 0.52rem;
+        border-radius: 0 0 0.56rem 0.56rem;
+        background: linear-gradient(180deg, rgba(16, 16, 16, 0.28), rgba(16, 16, 16, 0));
+        filter: blur(1.8px);
+        pointer-events: none;
+        z-index: -1;
       }
 
       .screen {
@@ -286,12 +377,17 @@
         border: 1.5px solid #080808;
         border-radius: 0.9rem;
         background:
-          radial-gradient(circle at 18% 10%, rgba(255, 255, 255, 0.38), transparent 22%),
+          radial-gradient(140% 105% at 50% -12%, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 34%),
+          radial-gradient(140% 115% at 50% 42%, rgba(216, 246, 246, 0.28) 0%, rgba(216, 246, 246, 0) 52%),
+          radial-gradient(120% 100% at 50% 118%, rgba(26, 74, 81, 0.16) 0%, rgba(26, 74, 81, 0) 44%),
           linear-gradient(180deg, #9fd8e0 0%, #afe3e8 18%, #cbf1f1 100%);
         box-shadow:
           inset 0 0 0 1px rgba(255, 255, 255, 0.18),
           inset 0 -12px 24px rgba(28, 77, 86, 0.18),
-          inset 0 0 36px rgba(0, 0, 0, 0.24);
+          inset 0 0 36px rgba(0, 0, 0, 0.24),
+          inset 14px 0 24px rgba(255, 255, 255, 0.04),
+          inset -14px 0 24px rgba(0, 0, 0, 0.07);
+        z-index: 1;
       }
 
       .screen::before {
@@ -299,9 +395,11 @@
         position: absolute;
         inset: 0;
         pointer-events: none;
-        opacity: 0.58;
+        opacity: 0.68;
         background:
-          linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.22) 13%, transparent 28%, transparent 100%),
+          linear-gradient(128deg, rgba(255, 255, 255, 0.34) 0%, rgba(255, 255, 255, 0.2) 10%, transparent 26%, transparent 100%),
+          radial-gradient(120% 90% at 50% -8%, rgba(255, 255, 255, 0.18) 0%, transparent 44%),
+          radial-gradient(92% 118% at 50% 50%, transparent 60%, rgba(0, 0, 0, 0.08) 100%),
           repeating-linear-gradient(180deg, rgba(16, 42, 47, 0.055) 0 1px, transparent 1px 3px);
       }
 
@@ -310,37 +408,76 @@
         position: absolute;
         inset: 0;
         pointer-events: none;
+        background:
+          radial-gradient(125% 110% at 50% 50%, transparent 62%, rgba(0, 0, 0, 0.16) 100%);
         box-shadow:
           inset 0 0 0 1px rgba(255, 255, 255, 0.14),
-          inset 0 0 42px rgba(0, 0, 0, 0.24);
+          inset 0 0 48px rgba(0, 0, 0, 0.24),
+          inset 0 -1px 0 rgba(255, 255, 255, 0.14);
       }
 
       .machine__utility {
         position: relative;
-        width: min(100%, 40rem);
-        min-height: 4.7rem;
-        margin-top: 0.3rem;
+        width: min(100%, 50.5rem);
+        min-height: 4.92rem;
+        margin-top: 0.18rem;
         z-index: 2;
+      }
+
+      .machine__utility::before {
+        content: "";
+        position: absolute;
+        left: 1.16rem;
+        right: 1.16rem;
+        top: -0.22rem;
+        height: 1.14rem;
+        background: linear-gradient(180deg, rgba(88, 67, 36, 0.24), rgba(88, 67, 36, 0));
+        filter: blur(2px);
+        pointer-events: none;
+      }
+
+      .machine__utility::after {
+        content: "";
+        position: absolute;
+        left: 1.32rem;
+        right: 1.32rem;
+        bottom: 0.08rem;
+        height: 0.48rem;
+        border-radius: 0 0 0.48rem 0.48rem;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.24), rgba(156, 127, 82, 0.16) 55%, rgba(156, 127, 82, 0) 100%);
+        opacity: 0.68;
+        pointer-events: none;
       }
 
       .machine__lower {
         position: relative;
-        width: calc(100% - 1.45rem);
-        max-width: 38.55rem;
-        min-height: 3.7rem;
-        margin-top: -0.06rem;
-        border: 1px solid rgba(184, 167, 136, 0.92);
-        border-top: 1px solid rgba(156, 136, 100, 0.68);
-        border-radius: 0 0 1.1rem 1.1rem;
-        background: linear-gradient(
-          180deg,
-          rgba(231, 222, 204, 0.98) 0%,
-          rgba(213, 199, 171, 0.98) 100%
-        );
+        width: calc(100% - 2.16rem);
+        max-width: 37.58rem;
+        min-height: 3.92rem;
+        margin-top: -0.24rem;
+        border: 1px solid rgba(177, 159, 126, 0.92);
+        border-top: 1px solid rgba(118, 93, 56, 0.76);
+        border-radius: 0 0 1.18rem 1.18rem;
+        background:
+          linear-gradient(180deg, rgba(120, 94, 57, 0.12) 0%, rgba(255, 255, 255, 0) 0.72rem),
+          radial-gradient(115% 150% at -12% 50%, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0) 48%),
+          radial-gradient(115% 150% at 112% 50%, rgba(139, 114, 76, 0.14) 0%, rgba(139, 114, 76, 0) 48%),
+          linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.15) 0%,
+            transparent 11%,
+            transparent 89%,
+            rgba(132, 109, 73, 0.08) 100%
+          ),
+          linear-gradient(180deg, rgba(238, 229, 211, 0.99) 0%, rgba(216, 201, 171, 0.99) 100%);
         box-shadow:
-          inset 0 1px 0 rgba(255, 255, 255, 0.5),
-          inset 0 8px 12px rgba(134, 110, 73, 0.08),
-          0 8px 16px rgba(96, 77, 45, 0.12);
+          0 -1px 0 rgba(255, 255, 255, 0.18),
+          inset 0 1px 0 rgba(255, 255, 255, 0.52),
+          inset 0 18px 20px rgba(137, 113, 75, 0.14),
+          inset 22px 0 22px rgba(151, 127, 87, 0.05),
+          inset -22px 0 22px rgba(151, 127, 87, 0.05),
+          0 10px 18px rgba(96, 77, 45, 0.13);
+        isolation: isolate;
         z-index: 1;
       }
 
@@ -350,40 +487,60 @@
         left: 0;
         right: 0;
         top: 0;
-        height: 0.14rem;
-        background: linear-gradient(180deg, rgba(129, 106, 70, 0.24), rgba(255, 255, 255, 0.18));
+        height: 0.34rem;
+        background: linear-gradient(180deg, rgba(86, 64, 31, 0.34), rgba(255, 255, 255, 0.16));
+        z-index: 0;
+      }
+
+      .machine__lower::after {
+        content: "";
+        position: absolute;
+        inset: 0.54rem 0.8rem 0.26rem;
+        border-radius: 0 0 0.86rem 0.86rem;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.2),
+          inset 0 18px 18px rgba(137, 113, 75, 0.1),
+          inset 0 -1px 0 rgba(162, 135, 94, 0.12);
+        opacity: 0.88;
+        pointer-events: none;
+        z-index: 0;
       }
 
       .machine__signature {
         position: absolute;
-        left: 1.15rem;
-        bottom: 0.7rem;
-        display: inline-grid;
-        gap: 0;
-        justify-items: center;
+        left: 0.96rem;
+        bottom: 0.72rem;
+        width: 0.96rem;
+        height: 1.16rem;
+        display: inline-block;
+        z-index: 1;
       }
 
-      .machine__rainbow {
-        width: 1.15rem;
-        height: 1.45rem;
-        border: 1px solid rgba(84, 74, 60, 0.56);
-        border-radius: 0.16rem;
-        background:
-          linear-gradient(90deg, #2e6fb0 0 17%, #44a760 17% 34%, #f4c54a 34% 51%, #ea8a3c 51% 68%, #d85b4a 68% 85%, #8557a7 85% 100%);
-        box-shadow:
-          inset 0 0 0 1px rgba(255, 255, 255, 0.28),
-          0 1px 0 rgba(255, 255, 255, 0.36);
+      .machine__apple {
+        display: block;
+        width: 100%;
+        height: 100%;
+        filter:
+          drop-shadow(0 1px 0 rgba(255, 255, 255, 0.42))
+          drop-shadow(0 1px 1px rgba(98, 80, 48, 0.16));
+      }
+
+      .machine__apple svg {
+        display: block;
+        width: 100%;
+        height: 100%;
       }
 
       .machine__drive {
         position: absolute;
-        right: 1.15rem;
-        top: 0.9rem;
-        width: 9.8rem;
-        height: 2.55rem;
+        right: 0.92rem;
+        top: 0.7rem;
+        width: 10.7rem;
+        height: 2.52rem;
         background: none;
         border: 0;
         box-shadow: none;
+        z-index: 1;
       }
 
       .machine__drive::before,
@@ -403,62 +560,92 @@
 
       .machine__drive::before {
         left: 0;
-        top: 0.92rem;
-        width: 7.15rem;
-        height: 0.72rem;
-        border-radius: 0.08rem 0 0 0.08rem;
+        top: 0.7rem;
+        width: 8.46rem;
+        height: 0.92rem;
+        border: 1px solid rgba(143, 124, 91, 0.46);
+        border-right: 0;
+        border-radius: 0.12rem 0 0 0.12rem;
       }
 
       .machine__drive::after {
-        right: 0.95rem;
-        top: 0.42rem;
-        width: 2.2rem;
-        height: 1.48rem;
+        right: 0.74rem;
+        top: 0.24rem;
+        width: 1.74rem;
+        height: 1.44rem;
+        border: 1px solid rgba(143, 124, 91, 0.46);
         border-radius: 0.12rem;
       }
 
       .machine__drive-slot {
         position: absolute;
-        left: 0.34rem;
-        top: 1.18rem;
-        width: 7.45rem;
-        height: 0.22rem;
-        border-radius: 999px;
-        background: #111111;
+        left: 0.42rem;
+        top: 1.05rem;
+        width: 7.88rem;
+        height: 0.12rem;
+        border-radius: 0.04rem;
+        background: #121212;
         box-shadow:
-          0 1px 0 rgba(255, 255, 255, 0.06),
-          0 0 0 1px rgba(0, 0, 0, 0.12);
+          0 1px 0 rgba(255, 255, 255, 0.08),
+          0 -1px 0 rgba(108, 87, 54, 0.14);
+      }
+
+      .machine__drive-lip {
+        position: absolute;
+        left: 0.2rem;
+        top: 0.86rem;
+        width: 8.18rem;
+        height: 0.08rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.48);
+        box-shadow:
+          0 0.5rem 0 rgba(176, 156, 121, 0.28),
+          0 0.58rem 0 rgba(110, 87, 50, 0.12);
       }
 
       .machine__drive-eject {
         position: absolute;
-        right: 1.16rem;
-        top: 0.9rem;
-        width: 1.18rem;
-        height: 0.72rem;
-        border-radius: 0.06rem;
-        background: linear-gradient(180deg, #4c4338 0%, #0f0f0f 100%);
+        right: 0.98rem;
+        top: 0.62rem;
+        width: 0.7rem;
+        height: 0.7rem;
+        border: 1px solid rgba(140, 119, 84, 0.54);
+        border-radius: 0.08rem;
+        background: linear-gradient(
+          180deg,
+          rgba(249, 241, 224, 0.98) 0%,
+          rgba(212, 195, 163, 0.98) 100%
+        );
         box-shadow:
-          inset 0 1px 0 rgba(255, 255, 255, 0.18),
-          0 0 0 1px rgba(52, 44, 34, 0.32);
+          inset 0 1px 0 rgba(255, 255, 255, 0.4),
+          inset 0 -1px 0 rgba(124, 100, 62, 0.14);
+      }
+
+      .machine__drive-eject::before {
+        content: "";
+        position: absolute;
+        inset: 0.14rem;
+        border-top: 1px solid rgba(120, 98, 64, 0.34);
+        border-left: 1px solid rgba(120, 98, 64, 0.24);
+        opacity: 0.75;
       }
 
       .machine__drive-dot {
         position: absolute;
-        right: 0.34rem;
-        top: 1.17rem;
-        width: 0.16rem;
-        height: 0.16rem;
+        right: 0.16rem;
+        top: 1.01rem;
+        width: 0.08rem;
+        height: 0.08rem;
         border-radius: 50%;
-        background: rgba(40, 28, 14, 0.86);
+        background: rgba(82, 61, 32, 0.86);
       }
 
       .machine__switch {
         position: absolute;
-        right: 0.95rem;
-        top: 0.95rem;
-        width: 1.6rem;
-        height: 1.08rem;
+        right: 0.74rem;
+        top: 0.86rem;
+        width: 1.34rem;
+        height: 0.94rem;
         border: 1px solid rgba(146, 129, 100, 0.7);
         border-radius: 0.16rem;
         background: linear-gradient(
@@ -468,18 +655,32 @@
         );
         box-shadow:
           inset 0 1px 0 rgba(255, 255, 255, 0.56),
-          inset 0 -1px 0 rgba(102, 82, 49, 0.1);
+          inset 0 -1px 0 rgba(102, 82, 49, 0.1),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+        z-index: 1;
       }
 
       .machine__switch::before {
         content: "";
         position: absolute;
-        right: 0.18rem;
-        top: 0.17rem;
-        width: 0.44rem;
-        height: 0.72rem;
-        border-radius: 0.08rem;
-        background: linear-gradient(180deg, rgba(189, 178, 159, 0.98), rgba(163, 147, 121, 0.98));
+        right: 0.16rem;
+        top: 0.14rem;
+        width: 0.3rem;
+        height: 0.62rem;
+        border-radius: 0.06rem;
+        background: linear-gradient(180deg, rgba(189, 178, 159, 0.98), rgba(156, 141, 115, 0.98));
+      }
+
+      .machine__switch::after {
+        content: "";
+        position: absolute;
+        left: 0.16rem;
+        top: 0.26rem;
+        right: 0.56rem;
+        height: 0.12rem;
+        border-radius: 999px;
+        background: rgba(131, 108, 72, 0.2);
+        box-shadow: 0 0.22rem 0 rgba(255, 255, 255, 0.14);
       }
 
       .machine__foot {
@@ -490,6 +691,7 @@
         border-radius: 0.08rem;
         background: rgba(213, 202, 182, 0.98);
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+        z-index: 1;
       }
 
       .machine__foot--left {
@@ -523,11 +725,18 @@
       }
 
       .menu-bar__mark {
-        width: 0.72rem;
-        height: 0.72rem;
-        border: 1.5px solid #173236;
-        background:
-          linear-gradient(180deg, transparent 0 46%, #173236 46% 54%, transparent 54% 100%);
+        width: 0.76rem;
+        height: 0.76rem;
+        display: inline-block;
+        flex: none;
+      }
+
+      .menu-bar__mark svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+        fill: currentColor;
+        shape-rendering: crispEdges;
       }
 
       .desktop {
@@ -652,15 +861,50 @@
         text-align: left;
         background: rgba(249, 250, 246, 0.7);
         color: #123035;
+        min-width: 0;
+        white-space: nowrap;
       }
 
       .window__title::before {
-        content: "";
-        width: 0.76rem;
-        height: 0.62rem;
+        content: none;
+      }
+
+      .pixel-icon {
+        width: 0.82rem;
+        height: 0.82rem;
         flex: none;
-        background: #123035;
-        clip-path: polygon(0 28%, 26% 28%, 38% 0, 100% 0, 100% 100%, 0 100%);
+        display: inline-block;
+        color: currentColor;
+      }
+
+      .pixel-icon svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+        fill: currentColor;
+        shape-rendering: crispEdges;
+      }
+
+      .pixel-icon--doc {
+        width: 0.78rem;
+      }
+
+      .pixel-icon--toolbox {
+        width: 0.9rem;
+      }
+
+      .pixel-icon--contact {
+        width: 0.84rem;
+      }
+
+      .pixel-icon--qr {
+        width: 0.74rem;
+        height: 0.74rem;
+      }
+
+      .pixel-icon--note {
+        width: 0.76rem;
+        height: 0.76rem;
       }
 
       .window__panel {
@@ -911,15 +1155,12 @@
         letter-spacing: 0.02em;
         line-height: 1;
         color: #123035;
+        min-width: 0;
+        white-space: nowrap;
       }
 
       .contact-fold__label::before {
-        content: "";
-        width: 0.72rem;
-        height: 0.72rem;
-        flex: none;
-        background: #123035;
-        clip-path: polygon(0 0, 100% 0, 100% 78%, 78% 78%, 78% 100%, 0 100%);
+        content: none;
       }
 
       .contact-fold__kind {
@@ -1036,9 +1277,9 @@
           gap: 0.28rem;
         }
 
-        .window__title::before {
-          width: 0.62rem;
-          height: 0.5rem;
+        .pixel-icon {
+          width: 0.72rem;
+          height: 0.72rem;
         }
 
         .window__toggle::after {
@@ -1046,12 +1287,16 @@
         }
 
         .contact-fold__toggle {
-          flex-wrap: wrap;
+          flex-wrap: nowrap;
+          gap: 0.32rem;
+          padding: 0.24rem 0.3rem 0.22rem;
         }
 
         .contact-fold__label {
-          width: 100%;
-          order: 2;
+          width: auto;
+          order: initial;
+          font-size: 0.84rem;
+          gap: 0.28rem;
         }
 
         .about-layout {
@@ -1065,71 +1310,145 @@
         }
 
         .machine {
-          width: min(100%, 23rem);
+          width: min(100%, 23.5rem);
+        }
+
+        .machine__handle {
+          width: 73%;
+          height: 1.18rem;
+          margin-bottom: -0.24rem;
+        }
+
+        .machine__shell::before {
+          inset: 0.22rem;
+          border-radius: 1.2rem;
+        }
+
+        .machine__shell::after {
+          left: 0.56rem;
+          right: 0.56rem;
         }
 
         .screen-well {
-          width: min(100%, 17.4rem);
-          padding: 0.8rem 0.84rem 0.92rem;
+          width: min(100%, 20.6rem);
+          padding: 0.56rem 0.62rem 0.72rem;
+        }
+
+        .screen-well::before {
+          inset: 0.2rem 0.24rem 0.32rem;
+        }
+
+        .screen-well::after {
+          left: 0.62rem;
+          right: 0.62rem;
+          bottom: 0.2rem;
+          height: 0.42rem;
+        }
+
+        .screen-frame::before {
+          inset: 0.14rem;
+        }
+
+        .screen-frame::after {
+          left: 0.46rem;
+          right: 0.46rem;
+          bottom: -0.3rem;
+          height: 0.38rem;
         }
 
         .machine__utility {
           min-height: 4rem;
         }
 
+        .machine__utility::before {
+          left: 0.96rem;
+          right: 0.96rem;
+          top: -0.18rem;
+          height: 0.9rem;
+        }
+
+        .machine__utility::after {
+          left: 1.02rem;
+          right: 1.02rem;
+          bottom: 0.06rem;
+          height: 0.34rem;
+        }
+
         .machine__signature {
-          left: 0.8rem;
-          bottom: 0.55rem;
+          left: 0.72rem;
+          bottom: 0.62rem;
+          width: 0.78rem;
+          height: 0.96rem;
         }
 
         .machine__drive {
-          width: 7.5rem;
-          height: 2.1rem;
-          top: 0.72rem;
-          right: 0.78rem;
+          width: 8rem;
+          height: 2rem;
+          top: 0.58rem;
+          right: 0.62rem;
         }
 
         .machine__drive::before {
-          top: 0.76rem;
-          width: 5.55rem;
-          height: 0.62rem;
+          top: 0.56rem;
+          width: 6.24rem;
+          height: 0.74rem;
         }
 
         .machine__drive::after {
-          right: 0.72rem;
-          top: 0.34rem;
-          width: 1.82rem;
-          height: 1.24rem;
+          right: 0.58rem;
+          top: 0.16rem;
+          width: 1.34rem;
+          height: 1.14rem;
         }
 
         .machine__drive-slot {
-          left: 0.28rem;
-          top: 0.95rem;
-          width: 5.7rem;
+          left: 0.3rem;
+          top: 0.84rem;
+          width: 5.84rem;
+        }
+
+        .machine__drive-lip {
+          left: 0.16rem;
+          top: 0.72rem;
+          width: 6rem;
         }
 
         .machine__drive-eject {
-          right: 0.9rem;
-          top: 0.75rem;
-          width: 0.92rem;
-          height: 0.6rem;
-        }
-
-        .machine__switch {
-          width: 1.2rem;
-          height: 0.88rem;
-          right: 0.7rem;
-          top: 0.82rem;
-        }
-
-        .machine__switch::before {
-          width: 0.34rem;
+          right: 0.76rem;
+          top: 0.46rem;
+          width: 0.56rem;
           height: 0.56rem;
         }
 
+        .machine__drive-dot {
+          right: 0.12rem;
+          top: 0.82rem;
+        }
+
+        .machine__switch {
+          width: 1.02rem;
+          height: 0.72rem;
+          right: 0.58rem;
+          top: 0.76rem;
+        }
+
+        .machine__switch::before {
+          right: 0.12rem;
+          top: 0.12rem;
+          width: 0.22rem;
+          height: 0.46rem;
+        }
+
+        .machine__switch::after {
+          left: 0.12rem;
+          top: 0.2rem;
+          right: 0.4rem;
+          height: 0.1rem;
+        }
+
         .machine__lower {
-          width: calc(100% - 1rem);
-          min-height: 3rem;
+          width: calc(100% - 1.18rem);
+          min-height: 3.08rem;
         }
 
         .machine__foot {
@@ -1155,6 +1474,143 @@
   </head>
   <body>
     <a class="skip-link" href="#content">Skip to content</a>
+    <svg
+      aria-hidden="true"
+      focusable="false"
+      width="0"
+      height="0"
+      style="position: absolute; width: 0; height: 0; overflow: hidden"
+    >
+      <symbol id="pixel-icon-mac" viewBox="0 0 16 16">
+        <rect x="4" y="1" width="8" height="1"></rect>
+        <rect x="3" y="2" width="1" height="10"></rect>
+        <rect x="12" y="2" width="1" height="10"></rect>
+        <rect x="4" y="12" width="8" height="1"></rect>
+        <rect x="6" y="13" width="4" height="1"></rect>
+        <rect x="5" y="4" width="6" height="1"></rect>
+        <rect x="5" y="5" width="1" height="3"></rect>
+        <rect x="10" y="5" width="1" height="3"></rect>
+        <rect x="6" y="5" width="1" height="1"></rect>
+        <rect x="9" y="5" width="1" height="1"></rect>
+        <rect x="6" y="8" width="4" height="1"></rect>
+        <rect x="7" y="7" width="2" height="1"></rect>
+        <rect x="8" y="10" width="2" height="1"></rect>
+      </symbol>
+      <symbol id="pixel-icon-doc" viewBox="0 0 16 16">
+        <rect x="4" y="1" width="7" height="1"></rect>
+        <rect x="3" y="2" width="1" height="12"></rect>
+        <rect x="11" y="2" width="1" height="2"></rect>
+        <rect x="10" y="3" width="1" height="1"></rect>
+        <rect x="9" y="4" width="4" height="1"></rect>
+        <rect x="12" y="5" width="1" height="9"></rect>
+        <rect x="4" y="14" width="8" height="1"></rect>
+        <rect x="5" y="6" width="5" height="1"></rect>
+        <rect x="5" y="8" width="6" height="1"></rect>
+        <rect x="5" y="10" width="5" height="1"></rect>
+        <rect x="5" y="12" width="4" height="1"></rect>
+      </symbol>
+      <symbol id="pixel-icon-toolbox" viewBox="0 0 16 16">
+        <rect x="6" y="3" width="4" height="1"></rect>
+        <rect x="5" y="4" width="1" height="2"></rect>
+        <rect x="10" y="4" width="1" height="2"></rect>
+        <rect x="4" y="5" width="8" height="1"></rect>
+        <rect x="3" y="6" width="1" height="6"></rect>
+        <rect x="12" y="6" width="1" height="6"></rect>
+        <rect x="4" y="8" width="8" height="1"></rect>
+        <rect x="7" y="9" width="2" height="1"></rect>
+        <rect x="4" y="12" width="8" height="1"></rect>
+      </symbol>
+      <symbol id="pixel-icon-contact" viewBox="0 0 16 16">
+        <rect x="2" y="4" width="12" height="1"></rect>
+        <rect x="1" y="5" width="1" height="7"></rect>
+        <rect x="14" y="5" width="1" height="7"></rect>
+        <rect x="2" y="12" width="12" height="1"></rect>
+        <rect x="4" y="6" width="2" height="2"></rect>
+        <rect x="3" y="8" width="4" height="2"></rect>
+        <rect x="8" y="6" width="4" height="1"></rect>
+        <rect x="8" y="8" width="4" height="1"></rect>
+        <rect x="8" y="10" width="3" height="1"></rect>
+      </symbol>
+      <symbol id="pixel-icon-qr" viewBox="0 0 16 16">
+        <rect x="1" y="1" width="5" height="1"></rect>
+        <rect x="1" y="2" width="1" height="4"></rect>
+        <rect x="5" y="2" width="1" height="4"></rect>
+        <rect x="1" y="5" width="5" height="1"></rect>
+        <rect x="3" y="3" width="1" height="1"></rect>
+        <rect x="10" y="1" width="5" height="1"></rect>
+        <rect x="10" y="2" width="1" height="4"></rect>
+        <rect x="14" y="2" width="1" height="4"></rect>
+        <rect x="10" y="5" width="5" height="1"></rect>
+        <rect x="12" y="3" width="1" height="1"></rect>
+        <rect x="1" y="10" width="5" height="1"></rect>
+        <rect x="1" y="11" width="1" height="4"></rect>
+        <rect x="5" y="11" width="1" height="4"></rect>
+        <rect x="1" y="14" width="5" height="1"></rect>
+        <rect x="3" y="12" width="1" height="1"></rect>
+        <rect x="8" y="7" width="1" height="1"></rect>
+        <rect x="10" y="7" width="1" height="1"></rect>
+        <rect x="7" y="8" width="1" height="1"></rect>
+        <rect x="9" y="8" width="2" height="1"></rect>
+        <rect x="8" y="10" width="1" height="1"></rect>
+        <rect x="10" y="10" width="1" height="1"></rect>
+        <rect x="7" y="11" width="2" height="1"></rect>
+        <rect x="10" y="12" width="2" height="1"></rect>
+      </symbol>
+      <symbol id="pixel-icon-note" viewBox="0 0 16 16">
+        <rect x="4" y="2" width="8" height="1"></rect>
+        <rect x="3" y="3" width="1" height="10"></rect>
+        <rect x="12" y="3" width="1" height="10"></rect>
+        <rect x="4" y="13" width="8" height="1"></rect>
+        <rect x="5" y="4" width="1" height="1"></rect>
+        <rect x="5" y="7" width="1" height="1"></rect>
+        <rect x="5" y="10" width="1" height="1"></rect>
+        <rect x="7" y="5" width="4" height="1"></rect>
+        <rect x="7" y="7" width="3" height="1"></rect>
+        <rect x="7" y="9" width="4" height="1"></rect>
+        <rect x="7" y="11" width="2" height="1"></rect>
+      </symbol>
+      <symbol id="pixel-icon-finder" viewBox="0 0 16 16">
+        <rect x="2" y="1" width="11" height="1"></rect>
+        <rect x="1" y="2" width="1" height="11"></rect>
+        <rect x="13" y="2" width="1" height="11"></rect>
+        <rect x="2" y="13" width="11" height="1"></rect>
+        <rect x="7" y="2" width="1" height="11"></rect>
+        <rect x="4" y="4" width="1" height="1"></rect>
+        <rect x="10" y="4" width="1" height="1"></rect>
+        <rect x="9" y="6" width="1" height="3"></rect>
+        <rect x="8" y="9" width="1" height="1"></rect>
+        <rect x="9" y="10" width="1" height="1"></rect>
+        <rect x="4" y="10" width="4" height="1"></rect>
+      </symbol>
+      <symbol id="classic-apple" viewBox="0 0 24 24">
+        <defs>
+          <clipPath id="classic-apple-clip">
+            <path d="M12.152 6.896c-.948 0-2.415-.99-3.96-.99-2.043 0-3.93 1.188-4.973 3.03-2.13 3.675-.543 9.117 1.512 12.054 1.005 1.43 2.205 3.03 3.78 2.97 1.515-.06 2.085-.885 3.915-.885 1.815 0 2.325.885 3.945.855 1.635-.03 2.67-1.455 3.675-2.895 1.155-1.695 1.635-3.345 1.665-3.435-.045-.015-3.195-1.23-3.225-4.875-.03-3.045 2.49-4.5 2.61-4.575-1.425-2.07-3.615-2.31-4.38-2.37-1.875-.15-3.45 1.02-4.59 1.02z"></path>
+            <path d="M15.362 3.071c.84-1.02 1.41-2.46 1.26-3.071-1.215.045-2.685.81-3.555 1.83-.78.9-1.455 2.355-1.275 3.735 1.35.105 2.73-.69 3.57-1.695z"></path>
+          </clipPath>
+        </defs>
+        <g clip-path="url(#classic-apple-clip)">
+          <rect x="0" y="0" width="24" height="4" fill="#62b548"></rect>
+          <rect x="0" y="4" width="24" height="4" fill="#d9d54a"></rect>
+          <rect x="0" y="8" width="24" height="4" fill="#f0ae3b"></rect>
+          <rect x="0" y="12" width="24" height="4" fill="#df5c43"></rect>
+          <rect x="0" y="16" width="24" height="4" fill="#8d53a6"></rect>
+          <rect x="0" y="20" width="24" height="4" fill="#2b73b8"></rect>
+        </g>
+        <path
+          d="M12.152 6.896c-.948 0-2.415-.99-3.96-.99-2.043 0-3.93 1.188-4.973 3.03-2.13 3.675-.543 9.117 1.512 12.054 1.005 1.43 2.205 3.03 3.78 2.97 1.515-.06 2.085-.885 3.915-.885 1.815 0 2.325.885 3.945.855 1.635-.03 2.67-1.455 3.675-2.895 1.155-1.695 1.635-3.345 1.665-3.435-.045-.015-3.195-1.23-3.225-4.875-.03-3.045 2.49-4.5 2.61-4.575-1.425-2.07-3.615-2.31-4.38-2.37-1.875-.15-3.45 1.02-4.59 1.02z"
+          fill="none"
+          stroke="rgba(70, 57, 34, 0.28)"
+          stroke-width="0.5"
+        ></path>
+        <path
+          d="M15.362 3.071c.84-1.02 1.41-2.46 1.26-3.071-1.215.045-2.685.81-3.555 1.83-.78.9-1.455 2.355-1.275 3.735 1.35.105 2.73-.69 3.57-1.695z"
+          fill="none"
+          stroke="rgba(70, 57, 34, 0.28)"
+          stroke-width="0.5"
+        ></path>
+      </symbol>
+    </svg>
     <main class="stage" id="content">
       <section class="computer-scene" aria-label="Personal page displayed inside a 1984 Macintosh-inspired computer">
         <div class="computer-scene__shadow" aria-hidden="true"></div>
@@ -1166,7 +1622,11 @@
                 <div class="screen">
                   <div class="menu-bar" aria-hidden="true">
                     <div class="menu-bar__left">
-                      <span class="menu-bar__mark"></span>
+                      <span class="menu-bar__mark" aria-hidden="true">
+                        <svg viewBox="0 0 16 16">
+                          <use href="#pixel-icon-finder"></use>
+                        </svg>
+                      </span>
                       <span>Finder</span>
                       <span>File</span>
                       <span>Edit</span>
@@ -1188,7 +1648,14 @@
                         aria-controls="about-panel"
                       >
                         <span class="window__control" aria-hidden="true"></span>
-                        <span class="window__title">About Me</span>
+                        <span class="window__title">
+                          <span class="pixel-icon" aria-hidden="true">
+                            <svg viewBox="0 0 16 16">
+                              <use href="#pixel-icon-mac"></use>
+                            </svg>
+                          </span>
+                          <span>About Me</span>
+                        </span>
                       </button>
                       <div class="window__panel" id="about-panel" role="region" aria-labelledby="about-toggle">
                         <div class="window__panel-inner">
@@ -1237,7 +1704,14 @@
                         aria-controls="research-panel"
                       >
                         <span class="window__control" aria-hidden="true"></span>
-                        <span class="window__title">Research</span>
+                        <span class="window__title">
+                          <span class="pixel-icon pixel-icon--doc" aria-hidden="true">
+                            <svg viewBox="0 0 16 16">
+                              <use href="#pixel-icon-doc"></use>
+                            </svg>
+                          </span>
+                          <span>Research</span>
+                        </span>
                       </button>
                       <div class="window__panel" id="research-panel" role="region" aria-labelledby="research-toggle">
                         <div class="window__panel-inner">
@@ -1260,7 +1734,14 @@
                         aria-controls="interests-panel"
                       >
                         <span class="window__control" aria-hidden="true"></span>
-                        <span class="window__title">Interests</span>
+                        <span class="window__title">
+                          <span class="pixel-icon pixel-icon--toolbox" aria-hidden="true">
+                            <svg viewBox="0 0 16 16">
+                              <use href="#pixel-icon-toolbox"></use>
+                            </svg>
+                          </span>
+                          <span>Interests</span>
+                        </span>
                       </button>
                       <div class="window__panel" id="interests-panel" role="region" aria-labelledby="interests-toggle">
                         <div class="window__panel-inner">
@@ -1283,7 +1764,14 @@
                         aria-controls="contact-panel"
                       >
                         <span class="window__control" aria-hidden="true"></span>
-                        <span class="window__title">Contact</span>
+                        <span class="window__title">
+                          <span class="pixel-icon pixel-icon--contact" aria-hidden="true">
+                            <svg viewBox="0 0 16 16">
+                              <use href="#pixel-icon-contact"></use>
+                            </svg>
+                          </span>
+                          <span>Contact</span>
+                        </span>
                       </button>
                       <div class="window__panel" id="contact-panel" role="region" aria-labelledby="contact-toggle">
                         <div class="window__panel-inner">
@@ -1298,7 +1786,14 @@
                                   aria-controls="wechat-contact-panel"
                                 >
                                   <span class="contact-fold__control" aria-hidden="true"></span>
-                                  <span class="contact-fold__label">WeChat</span>
+                                  <span class="contact-fold__label">
+                                    <span class="pixel-icon pixel-icon--qr" aria-hidden="true">
+                                      <svg viewBox="0 0 16 16">
+                                        <use href="#pixel-icon-qr"></use>
+                                      </svg>
+                                    </span>
+                                    <span>WeChat</span>
+                                  </span>
                                   <span class="contact-fold__kind" aria-hidden="true">QR Contact</span>
                                 </button>
                                 <div
@@ -1339,7 +1834,14 @@
                                   aria-controls="rednote-contact-panel"
                                 >
                                   <span class="contact-fold__control" aria-hidden="true"></span>
-                                  <span class="contact-fold__label">Rednote</span>
+                                  <span class="contact-fold__label">
+                                    <span class="pixel-icon pixel-icon--note" aria-hidden="true">
+                                      <svg viewBox="0 0 16 16">
+                                        <use href="#pixel-icon-note"></use>
+                                      </svg>
+                                    </span>
+                                    <span>Rednote</span>
+                                  </span>
                                   <span class="contact-fold__kind" aria-hidden="true">QR Contact</span>
                                 </button>
                                 <div
@@ -1381,9 +1883,14 @@
             </div>
             <div class="machine__utility" aria-hidden="true">
               <div class="machine__signature">
-                <span class="machine__rainbow"></span>
+                <span class="machine__apple">
+                  <svg viewBox="0 0 24 24">
+                    <use href="#classic-apple"></use>
+                  </svg>
+                </span>
               </div>
               <div class="machine__drive">
+                <span class="machine__drive-lip"></span>
                 <span class="machine__drive-slot"></span>
                 <span class="machine__drive-eject"></span>
                 <span class="machine__drive-dot"></span>
