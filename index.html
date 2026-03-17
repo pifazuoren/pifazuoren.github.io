@@ -35,6 +35,17 @@
         --muted: #5f5c54;
         --line: #7d7b73;
         --inverse: #f5f3ec;
+        --crt-bg-top: #cfd0c7;
+        --crt-bg-mid: #e3e2d8;
+        --crt-bg-bottom: #f1efe6;
+        --crt-ink: #171512;
+        --crt-line: #1e1b17;
+        --crt-line-soft: rgba(30, 27, 23, 0.42);
+        --crt-line-faint: rgba(30, 27, 23, 0.14);
+        --crt-shadow: rgba(17, 17, 17, 0.56);
+        --crt-paper: rgba(248, 246, 239, 0.9);
+        --crt-paper-strong: rgba(250, 249, 243, 0.97);
+        --crt-paper-deep: rgba(235, 232, 222, 0.97);
         --shadow-hard: 4px 4px 0 #111111;
         --focus-ring: 3px solid #111111;
         --radius-shell: 26px;
@@ -216,10 +227,11 @@
       }
 
       .machine__shell {
+        --shell-side-pad: clamp(0.52rem, 1.6vw, 0.68rem);
+        --shell-bottom-pad: clamp(0.8rem, 1.7vw, 0.92rem);
         position: relative;
         width: 100%;
-        padding: clamp(1.02rem, 1.95vw, 1.28rem) clamp(0.52rem, 1.6vw, 0.68rem)
-          clamp(0.8rem, 1.7vw, 0.92rem);
+        padding: clamp(1.02rem, 1.95vw, 1.28rem) var(--shell-side-pad) var(--shell-bottom-pad);
         border: 1px solid rgba(184, 170, 148, 0.96);
         border-radius: 1.45rem;
         background:
@@ -377,13 +389,13 @@
         border: 1.5px solid #080808;
         border-radius: 0.9rem;
         background:
-          radial-gradient(140% 105% at 50% -12%, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 34%),
-          radial-gradient(140% 115% at 50% 42%, rgba(216, 246, 246, 0.28) 0%, rgba(216, 246, 246, 0) 52%),
-          radial-gradient(120% 100% at 50% 118%, rgba(26, 74, 81, 0.16) 0%, rgba(26, 74, 81, 0) 44%),
-          linear-gradient(180deg, #9fd8e0 0%, #afe3e8 18%, #cbf1f1 100%);
+          radial-gradient(140% 105% at 50% -12%, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0) 34%),
+          radial-gradient(140% 115% at 50% 42%, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0) 52%),
+          radial-gradient(120% 100% at 50% 118%, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0) 44%),
+          linear-gradient(180deg, var(--crt-bg-top) 0%, var(--crt-bg-mid) 20%, var(--crt-bg-bottom) 100%);
         box-shadow:
           inset 0 0 0 1px rgba(255, 255, 255, 0.18),
-          inset 0 -12px 24px rgba(28, 77, 86, 0.18),
+          inset 0 -12px 24px rgba(0, 0, 0, 0.12),
           inset 0 0 36px rgba(0, 0, 0, 0.24),
           inset 14px 0 24px rgba(255, 255, 255, 0.04),
           inset -14px 0 24px rgba(0, 0, 0, 0.07);
@@ -400,7 +412,7 @@
           linear-gradient(128deg, rgba(255, 255, 255, 0.34) 0%, rgba(255, 255, 255, 0.2) 10%, transparent 26%, transparent 100%),
           radial-gradient(120% 90% at 50% -8%, rgba(255, 255, 255, 0.18) 0%, transparent 44%),
           radial-gradient(92% 118% at 50% 50%, transparent 60%, rgba(0, 0, 0, 0.08) 100%),
-          repeating-linear-gradient(180deg, rgba(16, 42, 47, 0.055) 0 1px, transparent 1px 3px);
+          repeating-linear-gradient(180deg, rgba(18, 18, 18, 0.05) 0 1px, transparent 1px 3px);
       }
 
       .screen::after {
@@ -439,25 +451,27 @@
       .machine__utility::after {
         content: "";
         position: absolute;
-        left: 1.32rem;
-        right: 1.32rem;
+        left: 1.58rem;
+        right: 1.58rem;
         bottom: 0.08rem;
-        height: 0.48rem;
+        height: 0.2rem;
         border-radius: 0 0 0.48rem 0.48rem;
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.24), rgba(156, 127, 82, 0.16) 55%, rgba(156, 127, 82, 0) 100%);
-        opacity: 0.68;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(156, 127, 82, 0.06) 55%, rgba(156, 127, 82, 0) 100%);
+        opacity: 0.26;
         pointer-events: none;
       }
 
       .machine__lower {
         position: relative;
-        width: calc(100% - 1.04rem);
-        max-width: 51.8rem;
+        width: calc(100% + var(--shell-side-pad) + var(--shell-side-pad));
+        max-width: calc(100% + var(--shell-side-pad) + var(--shell-side-pad));
         min-height: 3.92rem;
         margin-top: -0.24rem;
+        margin-inline: calc(0px - var(--shell-side-pad));
+        margin-bottom: calc(0px - var(--shell-bottom-pad));
         border: 1px solid rgba(177, 159, 126, 0.92);
         border-top: 1px solid rgba(118, 93, 56, 0.76);
-        border-radius: 0 0 1.18rem 1.18rem;
+        border-radius: 0 0 1.38rem 1.38rem;
         background:
           linear-gradient(180deg, rgba(120, 94, 57, 0.12) 0%, rgba(255, 255, 255, 0) 0.72rem),
           radial-gradient(115% 150% at -12% 50%, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0) 48%),
@@ -495,8 +509,8 @@
       .machine__lower::after {
         content: "";
         position: absolute;
-        inset: 0.54rem 0.8rem 0.26rem;
-        border-radius: 0 0 0.86rem 0.86rem;
+        inset: 0.5rem 0 0;
+        border-radius: 0 0 1.1rem 1.1rem;
         box-shadow:
           inset 0 1px 0 rgba(255, 255, 255, 0.2),
           inset 0 18px 18px rgba(137, 113, 75, 0.1),
@@ -533,10 +547,10 @@
 
       .machine__drive {
         position: absolute;
-        right: 0.92rem;
-        top: 0.7rem;
-        width: 10.7rem;
-        height: 2.52rem;
+        right: 0.78rem;
+        top: 0.58rem;
+        width: 10.9rem;
+        height: 2.42rem;
         background: none;
         border: 0;
         box-shadow: none;
@@ -560,28 +574,28 @@
 
       .machine__drive::before {
         left: 0;
-        top: 0.7rem;
-        width: 8.46rem;
-        height: 0.92rem;
+        top: 0.62rem;
+        width: 8.58rem;
+        height: 0.84rem;
         border: 1px solid rgba(143, 124, 91, 0.46);
         border-right: 0;
         border-radius: 0.12rem 0 0 0.12rem;
       }
 
       .machine__drive::after {
-        right: 0.74rem;
-        top: 0.24rem;
-        width: 1.74rem;
-        height: 1.44rem;
+        right: 0.56rem;
+        top: 0.14rem;
+        width: 1.92rem;
+        height: 1.32rem;
         border: 1px solid rgba(143, 124, 91, 0.46);
         border-radius: 0.12rem;
       }
 
       .machine__drive-slot {
         position: absolute;
-        left: 0.42rem;
-        top: 1.05rem;
-        width: 7.88rem;
+        left: 0.44rem;
+        top: 0.95rem;
+        width: 8.04rem;
         height: 0.12rem;
         border-radius: 0.04rem;
         background: #121212;
@@ -592,9 +606,9 @@
 
       .machine__drive-lip {
         position: absolute;
-        left: 0.2rem;
-        top: 0.86rem;
-        width: 8.18rem;
+        left: 0.22rem;
+        top: 0.76rem;
+        width: 8.36rem;
         height: 0.08rem;
         border-radius: 999px;
         background: rgba(255, 255, 255, 0.48);
@@ -605,10 +619,10 @@
 
       .machine__drive-eject {
         position: absolute;
-        right: 0.98rem;
-        top: 0.62rem;
-        width: 0.7rem;
-        height: 0.7rem;
+        right: 0.84rem;
+        top: 0.5rem;
+        width: 0.74rem;
+        height: 0.74rem;
         border: 1px solid rgba(140, 119, 84, 0.54);
         border-radius: 0.08rem;
         background: linear-gradient(
@@ -632,8 +646,8 @@
 
       .machine__drive-dot {
         position: absolute;
-        right: 0.16rem;
-        top: 1.01rem;
+        right: 0.1rem;
+        top: 0.9rem;
         width: 0.08rem;
         height: 0.08rem;
         border-radius: 50%;
@@ -642,10 +656,10 @@
 
       .machine__switch {
         position: absolute;
-        right: 0.74rem;
-        top: 0.86rem;
-        width: 1.34rem;
-        height: 0.94rem;
+        right: 0.28rem;
+        top: 0.78rem;
+        width: 1.56rem;
+        height: 1.06rem;
         border: 1px solid rgba(146, 129, 100, 0.7);
         border-radius: 0.16rem;
         background: linear-gradient(
@@ -663,10 +677,10 @@
       .machine__switch::before {
         content: "";
         position: absolute;
-        right: 0.16rem;
-        top: 0.14rem;
-        width: 0.3rem;
-        height: 0.62rem;
+        right: 0.18rem;
+        top: 0.16rem;
+        width: 0.34rem;
+        height: 0.72rem;
         border-radius: 0.06rem;
         background: linear-gradient(180deg, rgba(189, 178, 159, 0.98), rgba(156, 141, 115, 0.98));
       }
@@ -674,10 +688,10 @@
       .machine__switch::after {
         content: "";
         position: absolute;
-        left: 0.16rem;
-        top: 0.26rem;
-        right: 0.56rem;
-        height: 0.12rem;
+        left: 0.18rem;
+        top: 0.28rem;
+        right: 0.68rem;
+        height: 0.14rem;
         border-radius: 999px;
         background: rgba(131, 108, 72, 0.2);
         box-shadow: 0 0.22rem 0 rgba(255, 255, 255, 0.14);
@@ -708,13 +722,13 @@
         justify-content: space-between;
         gap: var(--space-3);
         padding: 0.28rem 0.5rem 0.24rem;
-        border-bottom: 1px solid rgba(16, 42, 47, 0.42);
-        background: linear-gradient(180deg, rgba(250, 253, 252, 0.65) 0%, rgba(226, 245, 244, 0.2) 100%);
+        border-bottom: 1px solid var(--crt-line-soft);
+        background: linear-gradient(180deg, rgba(252, 251, 246, 0.86) 0%, rgba(232, 229, 220, 0.68) 100%);
         font-family: var(--font-body);
         font-size: 0.84rem;
         letter-spacing: 0.02em;
         line-height: 1;
-        color: #173236;
+        color: var(--crt-ink);
       }
 
       .menu-bar__left,
@@ -748,7 +762,7 @@
         min-height: 0;
         overflow: auto;
         scrollbar-width: thin;
-        scrollbar-color: rgba(23, 50, 54, 0.45) transparent;
+        scrollbar-color: rgba(24, 22, 19, 0.45) transparent;
       }
 
       .desktop::-webkit-scrollbar {
@@ -756,16 +770,16 @@
       }
 
       .desktop::-webkit-scrollbar-thumb {
-        background: rgba(23, 50, 54, 0.42);
+        background: rgba(24, 22, 19, 0.42);
       }
 
       .window {
         display: flex;
         flex-direction: column;
         min-width: 0;
-        border: 1.5px solid #123035;
-        background: rgba(250, 250, 245, 0.88);
-        box-shadow: 2px 2px 0 rgba(18, 48, 53, 0.56);
+        border: 1.5px solid var(--crt-line);
+        background: var(--crt-paper);
+        box-shadow: 2px 2px 0 var(--crt-shadow);
       }
 
       .window__toggle {
@@ -776,8 +790,8 @@
         gap: var(--space-2);
         padding: 0.28rem 0.42rem 0.26rem;
         border: 0;
-        border-bottom: 1.5px solid #123035;
-        background: linear-gradient(180deg, rgba(249, 251, 246, 0.96) 0%, rgba(231, 239, 234, 0.96) 100%);
+        border-bottom: 1.5px solid var(--crt-line);
+        background: linear-gradient(180deg, var(--crt-paper-strong) 0%, var(--crt-paper-deep) 100%);
         color: inherit;
         font: inherit;
         text-align: left;
@@ -788,7 +802,7 @@
       }
 
       .window__toggle:hover {
-        background: linear-gradient(180deg, rgba(254, 255, 252, 0.96) 0%, rgba(236, 245, 240, 0.96) 100%);
+        background: linear-gradient(180deg, rgba(252, 251, 246, 0.98) 0%, rgba(242, 239, 232, 0.98) 100%);
       }
 
       .window__toggle:active {
@@ -809,7 +823,7 @@
         opacity: 0.22;
         background: repeating-linear-gradient(
           90deg,
-          rgba(18, 48, 53, 0.75) 0 6px,
+          rgba(30, 27, 23, 0.75) 0 6px,
           transparent 6px 9px
         );
       }
@@ -820,8 +834,8 @@
         flex: none;
         width: 0.82rem;
         height: 0.82rem;
-        border: 1.5px solid #123035;
-        background: rgba(249, 250, 246, 0.96);
+        border: 1.5px solid var(--crt-line);
+        background: rgba(248, 246, 239, 0.96);
       }
 
       .window__control::before,
@@ -859,8 +873,8 @@
         letter-spacing: 0.02em;
         text-transform: none;
         text-align: left;
-        background: rgba(249, 250, 246, 0.7);
-        color: #123035;
+        background: rgba(248, 246, 239, 0.72);
+        color: var(--crt-ink);
         min-width: 0;
         white-space: nowrap;
       }
@@ -941,7 +955,7 @@
 
       .window__body {
         padding: 0.7rem 0.75rem 0.75rem;
-        background: rgba(252, 251, 246, 0.58);
+        background: rgba(248, 246, 239, 0.64);
       }
 
       .about-layout {
@@ -960,9 +974,9 @@
         justify-self: end;
         width: clamp(5.2rem, 11vw, 6.4rem);
         padding: 0.22rem;
-        border: 1.5px solid #123035;
-        background: rgba(247, 247, 242, 0.92);
-        box-shadow: 2px 2px 0 rgba(18, 48, 53, 0.56);
+        border: 1.5px solid var(--crt-line);
+        background: rgba(245, 243, 235, 0.94);
+        box-shadow: 2px 2px 0 var(--crt-shadow);
       }
 
       .portrait-card img {
@@ -1009,7 +1023,7 @@
         line-height: 0.92;
         font-weight: 700;
         font-family: var(--font-human);
-        color: #102b30;
+        color: var(--crt-ink);
       }
 
       h2 {
@@ -1037,7 +1051,7 @@
         font-size: clamp(1.02rem, 1.45vw, 1.26rem);
         line-height: 1.03;
         letter-spacing: 0.015em;
-        color: #173236;
+        color: var(--crt-ink);
       }
 
       .info-copy {
@@ -1046,7 +1060,7 @@
         font-size: clamp(1rem, 1.4vw, 1.18rem);
         line-height: 1.03;
         letter-spacing: 0.015em;
-        color: #173236;
+        color: var(--crt-ink);
       }
 
       .contact-grid {
@@ -1057,9 +1071,9 @@
       }
 
       .contact-fold {
-        border: 1.5px solid #123035;
-        background: rgba(250, 250, 245, 0.84);
-        box-shadow: 2px 2px 0 rgba(18, 48, 53, 0.56);
+        border: 1.5px solid var(--crt-line);
+        background: var(--crt-paper);
+        box-shadow: 2px 2px 0 var(--crt-shadow);
       }
 
       .contact-fold__toggle {
@@ -1070,8 +1084,8 @@
         gap: var(--space-2);
         padding: 0.3rem 0.44rem 0.28rem;
         border: 0;
-        border-bottom: 1.5px solid #123035;
-        background: linear-gradient(180deg, rgba(249, 251, 246, 0.96) 0%, rgba(231, 239, 234, 0.96) 100%);
+        border-bottom: 1.5px solid var(--crt-line);
+        background: linear-gradient(180deg, var(--crt-paper-strong) 0%, var(--crt-paper-deep) 100%);
         color: inherit;
         font: inherit;
         text-align: left;
@@ -1082,7 +1096,7 @@
       }
 
       .contact-fold__toggle:hover {
-        background: linear-gradient(180deg, rgba(254, 255, 252, 0.96) 0%, rgba(236, 245, 240, 0.96) 100%);
+        background: linear-gradient(180deg, rgba(252, 251, 246, 0.98) 0%, rgba(242, 239, 232, 0.98) 100%);
       }
 
       .contact-fold__toggle:active {
@@ -1103,7 +1117,7 @@
         opacity: 0.22;
         background: repeating-linear-gradient(
           90deg,
-          rgba(18, 48, 53, 0.75) 0 6px,
+          rgba(30, 27, 23, 0.75) 0 6px,
           transparent 6px 9px
         );
       }
@@ -1114,8 +1128,8 @@
         flex: none;
         width: 0.8rem;
         height: 0.8rem;
-        border: 1.5px solid #123035;
-        background: rgba(249, 250, 246, 0.96);
+        border: 1.5px solid var(--crt-line);
+        background: rgba(248, 246, 239, 0.96);
       }
 
       .contact-fold__control::before,
@@ -1148,13 +1162,13 @@
         align-items: center;
         gap: 0.48rem;
         padding-inline: 0.25rem;
-        background: rgba(249, 250, 246, 0.7);
+        background: rgba(248, 246, 239, 0.72);
         font-family: var(--font-body);
         font-size: 0.96rem;
         font-weight: 400;
         letter-spacing: 0.02em;
         line-height: 1;
-        color: #123035;
+        color: var(--crt-ink);
         min-width: 0;
         white-space: nowrap;
       }
@@ -1209,8 +1223,8 @@
         display: block;
         min-height: 44px;
         padding: 0.38rem;
-        border: 1.5px solid #123035;
-        background: rgba(252, 251, 246, 0.92);
+        border: 1.5px solid var(--crt-line);
+        background: rgba(249, 247, 240, 0.94);
         cursor: pointer;
         text-decoration: none;
         transition:
@@ -1221,8 +1235,8 @@
 
       .qr-link:hover {
         transform: translate(-2px, -2px);
-        box-shadow: 2px 2px 0 rgba(18, 48, 53, 0.56);
-        background: #ffffff;
+        box-shadow: 2px 2px 0 var(--crt-shadow);
+        background: rgba(255, 255, 251, 0.98);
       }
 
       .qr-link:focus-visible {
@@ -1368,10 +1382,10 @@
         }
 
         .machine__utility::after {
-          left: 1.02rem;
-          right: 1.02rem;
+          left: 1.18rem;
+          right: 1.18rem;
           bottom: 0.06rem;
-          height: 0.34rem;
+          height: 0.16rem;
         }
 
         .machine__signature {
@@ -1382,73 +1396,76 @@
         }
 
         .machine__drive {
-          width: 8rem;
-          height: 2rem;
-          top: 0.58rem;
-          right: 0.62rem;
+          width: 8.16rem;
+          height: 1.9rem;
+          top: 0.48rem;
+          right: 0.48rem;
         }
 
         .machine__drive::before {
-          top: 0.56rem;
-          width: 6.24rem;
-          height: 0.74rem;
+          top: 0.5rem;
+          width: 6.34rem;
+          height: 0.68rem;
         }
 
         .machine__drive::after {
-          right: 0.58rem;
-          top: 0.16rem;
-          width: 1.34rem;
-          height: 1.14rem;
+          right: 0.42rem;
+          top: 0.08rem;
+          width: 1.5rem;
+          height: 1.1rem;
         }
 
         .machine__drive-slot {
-          left: 0.3rem;
-          top: 0.84rem;
-          width: 5.84rem;
+          left: 0.32rem;
+          top: 0.76rem;
+          width: 5.98rem;
         }
 
         .machine__drive-lip {
           left: 0.16rem;
-          top: 0.72rem;
-          width: 6rem;
+          top: 0.64rem;
+          width: 6.18rem;
         }
 
         .machine__drive-eject {
-          right: 0.76rem;
-          top: 0.46rem;
-          width: 0.56rem;
-          height: 0.56rem;
+          right: 0.68rem;
+          top: 0.4rem;
+          width: 0.58rem;
+          height: 0.58rem;
         }
 
         .machine__drive-dot {
-          right: 0.12rem;
-          top: 0.82rem;
+          right: 0.08rem;
+          top: 0.72rem;
         }
 
         .machine__switch {
-          width: 1.02rem;
-          height: 0.72rem;
-          right: 0.58rem;
-          top: 0.76rem;
+          width: 1.18rem;
+          height: 0.82rem;
+          right: 0.3rem;
+          top: 0.68rem;
         }
 
         .machine__switch::before {
-          right: 0.12rem;
+          right: 0.14rem;
           top: 0.12rem;
-          width: 0.22rem;
-          height: 0.46rem;
+          width: 0.24rem;
+          height: 0.52rem;
         }
 
         .machine__switch::after {
-          left: 0.12rem;
-          top: 0.2rem;
-          right: 0.4rem;
+          left: 0.14rem;
+          top: 0.22rem;
+          right: 0.48rem;
           height: 0.1rem;
         }
 
         .machine__lower {
-          width: calc(100% - 0.72rem);
+          width: calc(100% + var(--shell-side-pad) + var(--shell-side-pad));
+          max-width: calc(100% + var(--shell-side-pad) + var(--shell-side-pad));
           min-height: 3.08rem;
+          margin-inline: calc(0px - var(--shell-side-pad));
+          margin-bottom: calc(0px - var(--shell-bottom-pad));
         }
 
         .machine__foot {
@@ -1621,25 +1638,25 @@
               <div class="screen-frame">
                 <div class="screen">
                   <div class="menu-bar" aria-hidden="true">
-                    <div class="menu-bar__left">
-                      <span class="menu-bar__mark" aria-hidden="true">
-                        <svg viewBox="0 0 16 16">
-                          <use href="#pixel-icon-finder"></use>
-                        </svg>
-                      </span>
-                      <span>Finder</span>
-                      <span>File</span>
-                      <span>Edit</span>
-                      <span>View</span>
+                      <div class="menu-bar__left">
+                        <span class="menu-bar__mark" aria-hidden="true">
+                          <svg viewBox="0 0 16 16">
+                            <use href="#pixel-icon-finder"></use>
+                          </svg>
+                        </span>
+                        <span>Finder</span>
+                        <span>File</span>
+                        <span>Edit</span>
+                        <span>View</span>
+                      </div>
+                      <div class="menu-bar__right">
+                        <span>Desktop</span>
+                        <span>Profile</span>
+                      </div>
                     </div>
-                    <div class="menu-bar__right">
-                      <span>Desktop</span>
-                      <span>Profile</span>
-                    </div>
-                  </div>
 
-                  <div class="desktop">
-                    <article class="window window--about is-open" aria-labelledby="about-toggle">
+                    <div class="desktop">
+                      <article class="window window--about is-open" aria-labelledby="about-toggle">
                       <button
                         class="window__toggle"
                         id="about-toggle"
@@ -1693,9 +1710,9 @@
                           </div>
                         </div>
                       </div>
-                    </article>
+                      </article>
 
-                    <section class="window" aria-labelledby="research-toggle">
+                      <section class="window" aria-labelledby="research-toggle">
                       <button
                         class="window__toggle"
                         id="research-toggle"
@@ -1723,9 +1740,9 @@
                           </div>
                         </div>
                       </div>
-                    </section>
+                      </section>
 
-                    <section class="window" aria-labelledby="interests-toggle">
+                      <section class="window" aria-labelledby="interests-toggle">
                       <button
                         class="window__toggle"
                         id="interests-toggle"
@@ -1753,9 +1770,9 @@
                           </div>
                         </div>
                       </div>
-                    </section>
+                      </section>
 
-                    <section class="window window--contact" aria-labelledby="contact-toggle">
+                      <section class="window window--contact" aria-labelledby="contact-toggle">
                       <button
                         class="window__toggle"
                         id="contact-toggle"
@@ -1876,8 +1893,8 @@
                           </div>
                         </div>
                       </div>
-                    </section>
-                  </div>
+                      </section>
+                    </div>
                 </div>
               </div>
             </div>
