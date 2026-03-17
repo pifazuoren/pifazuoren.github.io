@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>孙翌</title>
+    <meta
+      name="description"
+      content="A personal page for 孙翌, featuring background, research, interests, and QR-code contact panels."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" href="./wechat.jpg" as="image" />
+    <link rel="preload" href="./rednote.jpg" as="image" />
+    <link rel="preload" href="./TouXiang.png" as="image" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=Instrument+Sans:wght@400;500;600;700&amp;family=Silkscreen:wght@400;700&amp;family=VT323&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --shell-top: #d8d2c7;
+        --shell-mid: #c9c2b6;
+        --shell-bottom: #b7b0a2;
+        --shell-line: #8f887d;
+        --shell-shadow: rgba(24, 24, 20, 0.22);
+        --screen: #171717;
+        --screen-raised: #2d2d29;
+        --screen-grid: rgba(255, 255, 255, 0.06);
+        --paper: #f1efe7;
+        --paper-deep: #e3dfd2;
+        --paper-dither: rgba(17, 17, 17, 0.05);
+        --ink: #111111;
+        --muted: #5f5c54;
+        --line: #7d7b73;
+        --inverse: #f5f3ec;
+        --shadow-hard: 4px 4px 0 #111111;
+        --focus-ring: 3px solid #111111;
+        --radius-shell: 26px;
+        --space-1: 0.375rem;
+        --space-2: 0.625rem;
+        --space-3: 0.875rem;
+        --space-4: 1.125rem;
+        --space-5: 1.5rem;
+        --space-6: 2rem;
+        --font-display: "Silkscreen", monospace;
+        --font-body: "VT323", "IBM Plex Mono", "PingFang SC", "Hiragino Sans GB",
+          "Noto Sans SC", monospace;
+        --font-human: "Instrument Sans", "PingFang SC", "Hiragino Sans GB",
+          "Noto Sans SC", sans-serif;
+        --font-mono: "IBM Plex Mono", "SFMono-Regular", "Consolas", monospace;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: var(--font-human);
+        color: var(--ink);
+        background:
+          radial-gradient(circle at top, rgba(255, 255, 255, 0.5), transparent 32%),
+          linear-gradient(180deg, #f2eee6 0%, #e7e0d3 52%, #ddd4c7 100%);
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0;
+        background: none;
+      }
+
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.14) 0%, transparent 26%),
+          linear-gradient(180deg, transparent 0%, rgba(102, 84, 56, 0.06) 100%);
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      a:focus-visible {
+        outline: var(--focus-ring);
+        outline-offset: 4px;
+      }
+
+      .skip-link {
+        position: absolute;
+        left: 1rem;
+        top: 1rem;
+        z-index: 20;
+        padding: 0.7rem 1rem;
+        border: 2px solid var(--ink);
+        background: var(--paper);
+        font-family: var(--font-display);
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        transform: translateY(-180%);
+        transition: transform 180ms ease;
+      }
+
+      .skip-link:focus {
+        transform: translateY(0);
+      }
+
+      .stage {
+        position: relative;
+        padding: clamp(1.5rem, 4vw, 3.4rem) clamp(1rem, 3vw, 2rem)
+          clamp(2.8rem, 7vw, 4.8rem);
+      }
+
+      .computer-scene {
+        position: relative;
+        width: min(100%, 110rem);
+        margin: 0 auto;
+        display: grid;
+        justify-items: center;
+        gap: clamp(0.25rem, 1.2vw, 0.9rem);
+      }
+
+      .computer-scene__shadow {
+        position: absolute;
+        left: 50%;
+        bottom: clamp(8.5rem, 15vw, 10rem);
+        width: min(56%, 26rem);
+        height: clamp(2rem, 5vw, 3rem);
+        transform: translateX(-50%);
+        border-radius: 999px;
+        background: radial-gradient(
+          closest-side,
+          rgba(90, 69, 33, 0.32) 0%,
+          rgba(90, 69, 33, 0.16) 58%,
+          transparent 100%
+        );
+        filter: blur(12px);
+        pointer-events: none;
+      }
+
+      .machine {
+        position: relative;
+        width: min(100%, 54rem);
+        margin: 0 auto;
+        display: grid;
+        justify-items: center;
+        z-index: 2;
+      }
+
+      .machine__handle {
+        position: relative;
+        width: 76%;
+        height: 1.45rem;
+        margin: 0 auto -0.2rem;
+        border: 1px solid rgba(195, 182, 158, 0.95);
+        border-radius: 0.5rem 0.5rem 0 0;
+        background: linear-gradient(
+          180deg,
+          rgba(247, 239, 225, 0.98) 0%,
+          rgba(227, 217, 197, 0.96) 100%
+        );
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.8),
+          0 6px 10px rgba(0, 0, 0, 0.06);
+        z-index: 3;
+      }
+
+      .machine__handle::before,
+      .machine__handle::after {
+        content: "";
+        position: absolute;
+        top: 0.1rem;
+        bottom: 0.12rem;
+        width: 2px;
+        background: rgba(175, 163, 141, 0.9);
+        box-shadow: 1px 0 0 rgba(255, 255, 255, 0.55);
+      }
+
+      .machine__handle::before {
+        left: 24%;
+      }
+
+      .machine__handle::after {
+        right: 24%;
+      }
+
+      .machine__shell {
+        position: relative;
+        width: 100%;
+        padding: clamp(1.4rem, 2.6vw, 1.8rem) clamp(1rem, 3vw, 1.3rem)
+          clamp(1rem, 2.5vw, 1.25rem);
+        border: 1px solid rgba(184, 170, 148, 0.96);
+        border-radius: 1.45rem;
+        background: linear-gradient(
+          180deg,
+          #f3ebdc 0%,
+          #eadfc9 46%,
+          #d8c8ad 100%
+        );
+        box-shadow:
+          inset 1px 1px 0 rgba(255, 255, 255, 0.8),
+          inset -2px -2px 0 rgba(147, 130, 101, 0.18),
+          0 18px 30px rgba(100, 83, 54, 0.24);
+        display: grid;
+        justify-items: center;
+        gap: 0;
+        z-index: 2;
+      }
+
+      .machine__shell::before {
+        content: "";
+        position: absolute;
+        inset: 0.55rem;
+        border-radius: 1.1rem;
+        border: 1px solid rgba(255, 255, 255, 0.44);
+        pointer-events: none;
+      }
+
+      .machine__shell::after {
+        content: "";
+        position: absolute;
+        left: 0.9rem;
+        right: 0.9rem;
+        bottom: -0.75rem;
+        height: 1.2rem;
+        border-radius: 0 0 1rem 1rem;
+        background: linear-gradient(180deg, rgba(181, 163, 134, 0.45), rgba(181, 163, 134, 0));
+        filter: blur(1px);
+        z-index: -1;
+      }
+
+      .screen-well {
+        position: relative;
+        width: min(100%, 40rem);
+        margin-top: 0.15rem;
+        padding: 0.82rem 0.9rem 0.98rem;
+        border-radius: 1.2rem;
+        background: linear-gradient(145deg, #f7f0e0 0%, #d0c0a3 100%);
+        box-shadow:
+          inset 14px 14px 18px rgba(122, 101, 68, 0.2),
+          inset -9px -9px 16px rgba(255, 255, 255, 0.42);
+        z-index: 2;
+      }
+
+      .screen-frame {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 1.42 / 1;
+        padding: 0.56rem;
+        margin: 0 auto;
+        border: 1px solid #070707;
+        border-radius: 1rem;
+        background: linear-gradient(180deg, #363530 0%, #0f0f0f 100%);
+        box-shadow:
+          inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+          inset 0 0 0 6px rgba(0, 0, 0, 0.22),
+          0 4px 0 rgba(0, 0, 0, 0.18);
+        display: flex;
+      }
+
+      .screen {
+        position: relative;
+        width: 100%;
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        border: 1.5px solid #080808;
+        border-radius: 0.9rem;
+        background:
+          radial-gradient(circle at 18% 10%, rgba(255, 255, 255, 0.38), transparent 22%),
+          linear-gradient(180deg, #9fd8e0 0%, #afe3e8 18%, #cbf1f1 100%);
+        box-shadow:
+          inset 0 0 0 1px rgba(255, 255, 255, 0.18),
+          inset 0 -12px 24px rgba(28, 77, 86, 0.18),
+          inset 0 0 36px rgba(0, 0, 0, 0.24);
+      }
+
+      .screen::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.58;
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.22) 13%, transparent 28%, transparent 100%),
+          repeating-linear-gradient(180deg, rgba(16, 42, 47, 0.055) 0 1px, transparent 1px 3px);
+      }
+
+      .screen::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        box-shadow:
+          inset 0 0 0 1px rgba(255, 255, 255, 0.14),
+          inset 0 0 42px rgba(0, 0, 0, 0.24);
+      }
+
+      .machine__utility {
+        position: relative;
+        width: min(100%, 40rem);
+        min-height: 4.7rem;
+        margin-top: 0.3rem;
+        z-index: 2;
+      }
+
+      .machine__lower {
+        position: relative;
+        width: calc(100% - 1.45rem);
+        max-width: 38.55rem;
+        min-height: 3.7rem;
+        margin-top: -0.06rem;
+        border: 1px solid rgba(184, 167, 136, 0.92);
+        border-top: 1px solid rgba(156, 136, 100, 0.68);
+        border-radius: 0 0 1.1rem 1.1rem;
+        background: linear-gradient(
+          180deg,
+          rgba(231, 222, 204, 0.98) 0%,
+          rgba(213, 199, 171, 0.98) 100%
+        );
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.5),
+          inset 0 8px 12px rgba(134, 110, 73, 0.08),
+          0 8px 16px rgba(96, 77, 45, 0.12);
+        z-index: 1;
+      }
+
+      .machine__lower::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 0.14rem;
+        background: linear-gradient(180deg, rgba(129, 106, 70, 0.24), rgba(255, 255, 255, 0.18));
+      }
+
+      .machine__signature {
+        position: absolute;
+        left: 1.15rem;
+        bottom: 0.7rem;
+        display: inline-grid;
+        gap: 0;
+        justify-items: center;
+      }
+
+      .machine__rainbow {
+        width: 1.15rem;
+        height: 1.45rem;
+        border: 1px solid rgba(84, 74, 60, 0.56);
+        border-radius: 0.16rem;
+        background:
+          linear-gradient(90deg, #2e6fb0 0 17%, #44a760 17% 34%, #f4c54a 34% 51%, #ea8a3c 51% 68%, #d85b4a 68% 85%, #8557a7 85% 100%);
+        box-shadow:
+          inset 0 0 0 1px rgba(255, 255, 255, 0.28),
+          0 1px 0 rgba(255, 255, 255, 0.36);
+      }
+
+      .machine__drive {
+        position: absolute;
+        right: 1.15rem;
+        top: 0.9rem;
+        width: 8.8rem;
+        height: 2.7rem;
+        border: 1px solid rgba(148, 132, 104, 0.64);
+        border-radius: 0.42rem;
+        background: linear-gradient(
+          180deg,
+          rgba(227, 217, 198, 0.94) 0%,
+          rgba(195, 177, 144, 0.94) 100%
+        );
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.4),
+          inset 0 -1px 0 rgba(0, 0, 0, 0.08),
+          0 1px 0 rgba(255, 255, 255, 0.26);
+      }
+
+      .machine__drive-slot {
+        position: absolute;
+        left: 0.75rem;
+        top: 1.03rem;
+        width: 6.1rem;
+        height: 0.42rem;
+        border-radius: 999px;
+        background: #111111;
+        box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08);
+      }
+
+      .machine__drive-eject {
+        position: absolute;
+        right: 0.9rem;
+        top: 0.55rem;
+        width: 0.95rem;
+        height: 1.52rem;
+        border-radius: 0.12rem;
+        background: linear-gradient(180deg, #4c4338 0%, #0f0f0f 100%);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.18),
+          0 0 0 1px rgba(52, 44, 34, 0.32);
+      }
+
+      .machine__drive-dot {
+        position: absolute;
+        right: 0.36rem;
+        bottom: 0.34rem;
+        width: 0.13rem;
+        height: 0.13rem;
+        border-radius: 50%;
+        background: rgba(40, 28, 14, 0.86);
+      }
+
+      .machine__switch {
+        position: absolute;
+        right: 0.95rem;
+        top: 0.95rem;
+        width: 1.6rem;
+        height: 1.08rem;
+        border: 1px solid rgba(146, 129, 100, 0.7);
+        border-radius: 0.16rem;
+        background: linear-gradient(
+          180deg,
+          rgba(245, 237, 223, 0.96) 0%,
+          rgba(217, 204, 181, 0.96) 100%
+        );
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.56),
+          inset 0 -1px 0 rgba(102, 82, 49, 0.1);
+      }
+
+      .machine__switch::before {
+        content: "";
+        position: absolute;
+        right: 0.18rem;
+        top: 0.17rem;
+        width: 0.44rem;
+        height: 0.72rem;
+        border-radius: 0.08rem;
+        background: linear-gradient(180deg, rgba(189, 178, 159, 0.98), rgba(163, 147, 121, 0.98));
+      }
+
+      .machine__foot {
+        position: absolute;
+        bottom: -0.08rem;
+        width: 0.88rem;
+        height: 0.2rem;
+        border-radius: 0.08rem;
+        background: rgba(213, 202, 182, 0.98);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+      }
+
+      .machine__foot--left {
+        left: 0.9rem;
+      }
+
+      .machine__foot--right {
+        right: 0.9rem;
+      }
+
+      .menu-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-3);
+        padding: 0.28rem 0.5rem 0.24rem;
+        border-bottom: 1px solid rgba(16, 42, 47, 0.42);
+        background: linear-gradient(180deg, rgba(250, 253, 252, 0.65) 0%, rgba(226, 245, 244, 0.2) 100%);
+        font-family: var(--font-body);
+        font-size: 0.84rem;
+        letter-spacing: 0.02em;
+        line-height: 1;
+        color: #173236;
+      }
+
+      .menu-bar__left,
+      .menu-bar__right {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+      }
+
+      .menu-bar__mark {
+        width: 0.72rem;
+        height: 0.72rem;
+        border: 1.5px solid #173236;
+        background:
+          linear-gradient(180deg, transparent 0 46%, #173236 46% 54%, transparent 54% 100%);
+      }
+
+      .desktop {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(15rem, 0.8fr);
+        gap: 0.46rem;
+        padding: 0.42rem;
+        flex: 1;
+        min-height: 0;
+        overflow: auto;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(23, 50, 54, 0.45) transparent;
+      }
+
+      .desktop::-webkit-scrollbar {
+        width: 0.48rem;
+      }
+
+      .desktop::-webkit-scrollbar-thumb {
+        background: rgba(23, 50, 54, 0.42);
+      }
+
+      .window {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        border: 1.5px solid #123035;
+        background: rgba(250, 250, 245, 0.88);
+        box-shadow: 2px 2px 0 rgba(18, 48, 53, 0.56);
+      }
+
+      .window__toggle {
+        position: relative;
+        display: flex;
+        width: 100%;
+        align-items: center;
+        gap: var(--space-2);
+        padding: 0.28rem 0.42rem 0.26rem;
+        border: 0;
+        border-bottom: 1.5px solid #123035;
+        background: linear-gradient(180deg, rgba(249, 251, 246, 0.96) 0%, rgba(231, 239, 234, 0.96) 100%);
+        color: inherit;
+        font: inherit;
+        text-align: left;
+        cursor: pointer;
+        transition:
+          background-color 180ms ease,
+          transform 220ms cubic-bezier(0.19, 1, 0.22, 1);
+      }
+
+      .window__toggle:hover {
+        background: linear-gradient(180deg, rgba(254, 255, 252, 0.96) 0%, rgba(236, 245, 240, 0.96) 100%);
+      }
+
+      .window__toggle:active {
+        transform: translateY(1px);
+      }
+
+      .window__toggle:focus-visible {
+        outline: var(--focus-ring);
+        outline-offset: -5px;
+      }
+
+      .window__toggle::after {
+        content: "";
+        position: absolute;
+        inset: 50% 0.45rem auto calc(0.45rem + 1.05rem + 0.45rem);
+        height: 1px;
+        transform: translateY(-50%);
+        opacity: 0.22;
+        background: repeating-linear-gradient(
+          90deg,
+          rgba(18, 48, 53, 0.75) 0 6px,
+          transparent 6px 9px
+        );
+      }
+
+      .window__control {
+        position: relative;
+        z-index: 1;
+        flex: none;
+        width: 0.82rem;
+        height: 0.82rem;
+        border: 1.5px solid #123035;
+        background: rgba(249, 250, 246, 0.96);
+      }
+
+      .window__control::before,
+      .window__control::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 0.45rem;
+        height: 2px;
+        background: var(--ink);
+        transform: translate(-50%, -50%);
+        transition: transform 260ms cubic-bezier(0.19, 1, 0.22, 1), opacity 180ms ease;
+      }
+
+      .window__control::after {
+        transform: translate(-50%, -50%) rotate(90deg);
+      }
+
+      .window.is-open .window__control::after {
+        opacity: 0;
+        transform: translate(-50%, -50%) rotate(90deg) scaleX(0.3);
+      }
+
+      .window__title {
+        position: relative;
+        z-index: 1;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        gap: 0.48rem;
+        padding-inline: 0.25rem;
+        font-family: var(--font-body);
+        font-size: 0.98rem;
+        letter-spacing: 0.02em;
+        text-transform: none;
+        text-align: left;
+        background: rgba(249, 250, 246, 0.7);
+        color: #123035;
+      }
+
+      .window__title::before {
+        content: "";
+        width: 0.76rem;
+        height: 0.62rem;
+        flex: none;
+        background: #123035;
+        clip-path: polygon(0 28%, 26% 28%, 38% 0, 100% 0, 100% 100%, 0 100%);
+      }
+
+      .window__panel {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 360ms cubic-bezier(0.19, 1, 0.22, 1);
+      }
+
+      .window__panel-inner {
+        min-height: 0;
+        overflow: hidden;
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(-0.5rem);
+        transition:
+          opacity 180ms ease,
+          transform 320ms cubic-bezier(0.19, 1, 0.22, 1),
+          visibility 0s linear 360ms;
+      }
+
+      .window.is-open .window__panel {
+        grid-template-rows: 1fr;
+      }
+
+      .window.is-open .window__panel-inner {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+        transition:
+          opacity 220ms ease 80ms,
+          transform 360ms cubic-bezier(0.19, 1, 0.22, 1),
+          visibility 0s linear 0s;
+      }
+
+      .window__body {
+        padding: 0.7rem 0.75rem 0.75rem;
+        background: rgba(252, 251, 246, 0.58);
+      }
+
+      .about-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.38fr) clamp(5.2rem, 11vw, 6.4rem);
+        gap: 0.7rem;
+        align-items: start;
+      }
+
+      .about-main {
+        min-width: 0;
+      }
+
+      .portrait-card {
+        position: relative;
+        justify-self: end;
+        width: clamp(5.2rem, 11vw, 6.4rem);
+        padding: 0.22rem;
+        border: 1.5px solid #123035;
+        background: rgba(247, 247, 242, 0.92);
+        box-shadow: 2px 2px 0 rgba(18, 48, 53, 0.56);
+      }
+
+      .portrait-card img {
+        width: 100%;
+        height: auto;
+        border: 1px solid rgba(17, 17, 17, 0.42);
+        filter: grayscale(1) contrast(1.22) brightness(1.03);
+        image-rendering: crisp-edges;
+        mix-blend-mode: multiply;
+        background: #f4f0e5;
+      }
+
+      .window--about {
+        grid-column: 1 / -1;
+      }
+
+      .window--contact {
+        grid-column: 1 / -1;
+      }
+
+      .identity {
+        display: grid;
+        gap: 0.25rem;
+        margin-bottom: 1rem;
+      }
+
+      .identity__eyebrow {
+        margin: 0;
+        font-family: var(--font-body);
+        font-size: 1rem;
+        letter-spacing: 0.04em;
+        text-transform: none;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        font-size: clamp(1.6rem, 4.5vw, 2.8rem);
+        line-height: 0.92;
+        font-weight: 700;
+        font-family: var(--font-human);
+        color: #102b30;
+      }
+
+      h2 {
+        font-family: var(--font-body);
+        font-size: clamp(1.45rem, 2vw, 1.7rem);
+        line-height: 0.95;
+        font-weight: 400;
+        letter-spacing: 0.03em;
+        margin-bottom: 0.55rem;
+      }
+
+      h3 {
+        font-family: var(--font-body);
+        font-size: 1.18rem;
+        line-height: 1;
+        font-weight: 400;
+        letter-spacing: 0.03em;
+      }
+
+      .prose {
+        display: grid;
+        gap: 0.44rem;
+        max-width: min(100%, 84ch);
+        font-family: var(--font-body);
+        font-size: clamp(1.02rem, 1.45vw, 1.26rem);
+        line-height: 1.03;
+        letter-spacing: 0.015em;
+        color: #173236;
+      }
+
+      .info-copy {
+        max-width: min(100%, 68ch);
+        font-family: var(--font-body);
+        font-size: clamp(1rem, 1.4vw, 1.18rem);
+        line-height: 1.03;
+        letter-spacing: 0.015em;
+        color: #173236;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--space-4);
+        align-items: start;
+      }
+
+      .contact-fold {
+        border: 1.5px solid #123035;
+        background: rgba(250, 250, 245, 0.84);
+        box-shadow: 2px 2px 0 rgba(18, 48, 53, 0.56);
+      }
+
+      .contact-fold__toggle {
+        position: relative;
+        display: flex;
+        width: 100%;
+        align-items: center;
+        gap: var(--space-2);
+        padding: 0.3rem 0.44rem 0.28rem;
+        border: 0;
+        border-bottom: 1.5px solid #123035;
+        background: linear-gradient(180deg, rgba(249, 251, 246, 0.96) 0%, rgba(231, 239, 234, 0.96) 100%);
+        color: inherit;
+        font: inherit;
+        text-align: left;
+        cursor: pointer;
+        transition:
+          background-color 180ms ease,
+          transform 220ms cubic-bezier(0.19, 1, 0.22, 1);
+      }
+
+      .contact-fold__toggle:hover {
+        background: linear-gradient(180deg, rgba(254, 255, 252, 0.96) 0%, rgba(236, 245, 240, 0.96) 100%);
+      }
+
+      .contact-fold__toggle:active {
+        transform: translateY(1px);
+      }
+
+      .contact-fold__toggle:focus-visible {
+        outline: var(--focus-ring);
+        outline-offset: -5px;
+      }
+
+      .contact-fold__toggle::after {
+        content: "";
+        position: absolute;
+        inset: 50% 0.45rem auto calc(0.45rem + 1.05rem + 0.45rem);
+        height: 1px;
+        transform: translateY(-50%);
+        opacity: 0.22;
+        background: repeating-linear-gradient(
+          90deg,
+          rgba(18, 48, 53, 0.75) 0 6px,
+          transparent 6px 9px
+        );
+      }
+
+      .contact-fold__control {
+        position: relative;
+        z-index: 1;
+        flex: none;
+        width: 0.8rem;
+        height: 0.8rem;
+        border: 1.5px solid #123035;
+        background: rgba(249, 250, 246, 0.96);
+      }
+
+      .contact-fold__control::before,
+      .contact-fold__control::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 0.42rem;
+        height: 2px;
+        background: var(--ink);
+        transform: translate(-50%, -50%);
+        transition: transform 260ms cubic-bezier(0.19, 1, 0.22, 1), opacity 180ms ease;
+      }
+
+      .contact-fold__control::after {
+        transform: translate(-50%, -50%) rotate(90deg);
+      }
+
+      .contact-fold.is-open .contact-fold__control::after {
+        opacity: 0;
+        transform: translate(-50%, -50%) rotate(90deg) scaleX(0.3);
+      }
+
+      .contact-fold__label {
+        position: relative;
+        z-index: 1;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        gap: 0.48rem;
+        padding-inline: 0.25rem;
+        background: rgba(249, 250, 246, 0.7);
+        font-family: var(--font-body);
+        font-size: 0.96rem;
+        font-weight: 400;
+        letter-spacing: 0.02em;
+        line-height: 1;
+        color: #123035;
+      }
+
+      .contact-fold__label::before {
+        content: "";
+        width: 0.72rem;
+        height: 0.72rem;
+        flex: none;
+        background: #123035;
+        clip-path: polygon(0 0, 100% 0, 100% 78%, 78% 78%, 78% 100%, 0 100%);
+      }
+
+      .contact-fold__kind {
+        display: none;
+      }
+
+      .contact-fold__panel {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 320ms cubic-bezier(0.19, 1, 0.22, 1);
+      }
+
+      .contact-fold__panel-inner {
+        min-height: 0;
+        overflow: hidden;
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(-0.45rem);
+        transition:
+          opacity 180ms ease,
+          transform 280ms cubic-bezier(0.19, 1, 0.22, 1),
+          visibility 0s linear 320ms;
+      }
+
+      .contact-fold.is-open .contact-fold__panel {
+        grid-template-rows: 1fr;
+      }
+
+      .contact-fold.is-open .contact-fold__panel-inner {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+        transition:
+          opacity 200ms ease 60ms,
+          transform 320ms cubic-bezier(0.19, 1, 0.22, 1),
+          visibility 0s linear 0s;
+      }
+
+      .contact-fold__body {
+        display: grid;
+        gap: var(--space-3);
+        padding: 0.62rem;
+      }
+
+      .qr-link {
+        display: block;
+        min-height: 44px;
+        padding: 0.38rem;
+        border: 1.5px solid #123035;
+        background: rgba(252, 251, 246, 0.92);
+        cursor: pointer;
+        text-decoration: none;
+        transition:
+          transform 180ms ease,
+          box-shadow 180ms ease,
+          background-color 180ms ease;
+      }
+
+      .qr-link:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 2px 2px 0 rgba(18, 48, 53, 0.56);
+        background: #ffffff;
+      }
+
+      .qr-link:focus-visible {
+        outline: var(--focus-ring);
+        outline-offset: 5px;
+      }
+
+      .qr-link img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: auto;
+        border: 1px solid rgba(17, 17, 17, 0.36);
+      }
+      @media (max-width: 860px) {
+        .desktop {
+          grid-template-columns: 1fr;
+        }
+
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 620px) {
+        body::before {
+          background-size: 17rem 17rem;
+          background-position: center top;
+        }
+
+        .menu-bar {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .menu-bar__left,
+        .menu-bar__right {
+          flex-wrap: wrap;
+        }
+
+        .window__toggle {
+          flex-wrap: wrap;
+        }
+
+        .window__title {
+          width: 100%;
+          order: 2;
+          text-align: left;
+        }
+
+        .contact-fold__toggle {
+          flex-wrap: wrap;
+        }
+
+        .contact-fold__label {
+          width: 100%;
+          order: 2;
+        }
+
+        .about-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .portrait-card {
+          justify-self: start;
+          width: min(8.8rem, 52vw);
+          order: -1;
+        }
+
+        .machine {
+          width: min(100%, 23rem);
+        }
+
+        .screen-well {
+          width: min(100%, 17.4rem);
+          padding: 0.8rem 0.84rem 0.92rem;
+        }
+
+        .machine__utility {
+          min-height: 4rem;
+        }
+
+        .machine__signature {
+          left: 0.8rem;
+          bottom: 0.55rem;
+        }
+
+        .machine__drive {
+          width: 7rem;
+          height: 2.2rem;
+          top: 0.72rem;
+          right: 0.78rem;
+        }
+
+        .machine__drive-slot {
+          left: 0.62rem;
+          top: 0.8rem;
+          width: 4.9rem;
+        }
+
+        .machine__drive-eject {
+          right: 0.72rem;
+          top: 0.44rem;
+          height: 1.24rem;
+        }
+
+        .machine__switch {
+          width: 1.2rem;
+          height: 0.88rem;
+          right: 0.7rem;
+          top: 0.82rem;
+        }
+
+        .machine__switch::before {
+          width: 0.34rem;
+          height: 0.56rem;
+        }
+
+        .machine__lower {
+          width: calc(100% - 1rem);
+          min-height: 3rem;
+        }
+
+        .machine__foot {
+          width: 0.64rem;
+        }
+
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Skip to content</a>
+    <main class="stage" id="content">
+      <section class="computer-scene" aria-label="Personal page displayed inside a 1984 Macintosh-inspired computer">
+        <div class="computer-scene__shadow" aria-hidden="true"></div>
+        <div class="machine">
+          <div class="machine__handle" aria-hidden="true"></div>
+          <div class="machine__shell">
+            <div class="screen-well">
+              <div class="screen-frame">
+                <div class="screen">
+                  <div class="menu-bar" aria-hidden="true">
+                    <div class="menu-bar__left">
+                      <span class="menu-bar__mark"></span>
+                      <span>Finder</span>
+                      <span>File</span>
+                      <span>Edit</span>
+                      <span>View</span>
+                    </div>
+                    <div class="menu-bar__right">
+                      <span>Desktop</span>
+                      <span>Profile</span>
+                    </div>
+                  </div>
+
+                  <div class="desktop">
+                    <article class="window window--about is-open" aria-labelledby="about-toggle">
+                      <button
+                        class="window__toggle"
+                        id="about-toggle"
+                        type="button"
+                        aria-expanded="true"
+                        aria-controls="about-panel"
+                      >
+                        <span class="window__control" aria-hidden="true"></span>
+                        <span class="window__title">About Me</span>
+                      </button>
+                      <div class="window__panel" id="about-panel" role="region" aria-labelledby="about-toggle">
+                        <div class="window__panel-inner">
+                          <div class="window__body">
+                            <div class="about-layout">
+                              <div class="about-main">
+                                <div class="identity">
+                                  <p class="identity__eyebrow">Personal Page</p>
+                                  <h1 lang="zh-Hans">孙翌</h1>
+                                </div>
+                                <div class="prose">
+                                  <p>I come from Pudong.</p>
+                                  <p>
+                                    I am a third-year undergraduate student in the School of
+                                    Computer Science and Artificial Intelligence at Shanghai
+                                    University of Finance and Economics.
+                                  </p>
+                                  <p>
+                                    I am currently in a bit of a dilemma about the future,
+                                    and I am still exploring what kind of path I want to take
+                                    next.
+                                  </p>
+                                </div>
+                              </div>
+                              <aside class="portrait-card" aria-label="Portrait">
+                                <img
+                                  src="./TouXiang.png"
+                                  alt="Portrait illustration for 孙翌"
+                                  width="284"
+                                  height="320"
+                                  decoding="async"
+                                  fetchpriority="high"
+                                />
+                              </aside>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </article>
+
+                    <section class="window" aria-labelledby="research-toggle">
+                      <button
+                        class="window__toggle"
+                        id="research-toggle"
+                        type="button"
+                        aria-expanded="false"
+                        aria-controls="research-panel"
+                      >
+                        <span class="window__control" aria-hidden="true"></span>
+                        <span class="window__title">Research</span>
+                      </button>
+                      <div class="window__panel" id="research-panel" role="region" aria-labelledby="research-toggle">
+                        <div class="window__panel-inner">
+                          <div class="window__body">
+                            <p class="info-copy">
+                              I am currently researching social simulation with large
+                              language models (LLMs).
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+
+                    <section class="window" aria-labelledby="interests-toggle">
+                      <button
+                        class="window__toggle"
+                        id="interests-toggle"
+                        type="button"
+                        aria-expanded="false"
+                        aria-controls="interests-panel"
+                      >
+                        <span class="window__control" aria-hidden="true"></span>
+                        <span class="window__title">Interests</span>
+                      </button>
+                      <div class="window__panel" id="interests-panel" role="region" aria-labelledby="interests-toggle">
+                        <div class="window__panel-inner">
+                          <div class="window__body">
+                            <p class="info-copy">
+                              My hobbies include film photography and collecting medals
+                              from various countries.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+
+                    <section class="window window--contact" aria-labelledby="contact-toggle">
+                      <button
+                        class="window__toggle"
+                        id="contact-toggle"
+                        type="button"
+                        aria-expanded="false"
+                        aria-controls="contact-panel"
+                      >
+                        <span class="window__control" aria-hidden="true"></span>
+                        <span class="window__title">Contact</span>
+                      </button>
+                      <div class="window__panel" id="contact-panel" role="region" aria-labelledby="contact-toggle">
+                        <div class="window__panel-inner">
+                          <div class="window__body">
+                            <div class="contact-grid">
+                              <section class="contact-fold" aria-labelledby="wechat-contact-toggle">
+                                <button
+                                  class="contact-fold__toggle"
+                                  id="wechat-contact-toggle"
+                                  type="button"
+                                  aria-expanded="false"
+                                  aria-controls="wechat-contact-panel"
+                                >
+                                  <span class="contact-fold__control" aria-hidden="true"></span>
+                                  <span class="contact-fold__label">WeChat</span>
+                                  <span class="contact-fold__kind" aria-hidden="true">QR Contact</span>
+                                </button>
+                                <div
+                                  class="contact-fold__panel"
+                                  id="wechat-contact-panel"
+                                  role="region"
+                                  aria-labelledby="wechat-contact-toggle"
+                                >
+                                  <div class="contact-fold__panel-inner">
+                                    <div class="contact-fold__body">
+                                      <a
+                                        class="qr-link"
+                                        href="./wechat.jpg"
+                                        target="_blank"
+                                        rel="noopener"
+                                        aria-label="Open a larger WeChat QR code image"
+                                      >
+                                        <img
+                                          src="./wechat.jpg"
+                                          alt="WeChat QR code image for the display name 披发左衽"
+                                          width="1083"
+                                          height="1461"
+                                          decoding="sync"
+                                          fetchpriority="high"
+                                        />
+                                      </a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </section>
+
+                              <section class="contact-fold" aria-labelledby="rednote-contact-toggle">
+                                <button
+                                  class="contact-fold__toggle"
+                                  id="rednote-contact-toggle"
+                                  type="button"
+                                  aria-expanded="false"
+                                  aria-controls="rednote-contact-panel"
+                                >
+                                  <span class="contact-fold__control" aria-hidden="true"></span>
+                                  <span class="contact-fold__label">Rednote</span>
+                                  <span class="contact-fold__kind" aria-hidden="true">QR Contact</span>
+                                </button>
+                                <div
+                                  class="contact-fold__panel"
+                                  id="rednote-contact-panel"
+                                  role="region"
+                                  aria-labelledby="rednote-contact-toggle"
+                                >
+                                  <div class="contact-fold__panel-inner">
+                                    <div class="contact-fold__body">
+                                      <a
+                                        class="qr-link"
+                                        href="./rednote.jpg"
+                                        target="_blank"
+                                        rel="noopener"
+                                        aria-label="Open a larger Rednote QR code image"
+                                      >
+                                        <img
+                                          src="./rednote.jpg"
+                                          alt="Rednote profile and QR code image for the display name 披发左衽"
+                                          width="1011"
+                                          height="1629"
+                                          decoding="sync"
+                                          fetchpriority="high"
+                                        />
+                                      </a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </section>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="machine__utility" aria-hidden="true">
+              <div class="machine__signature">
+                <span class="machine__rainbow"></span>
+              </div>
+              <div class="machine__drive">
+                <span class="machine__drive-slot"></span>
+                <span class="machine__drive-eject"></span>
+                <span class="machine__drive-dot"></span>
+              </div>
+            </div>
+            <div class="machine__lower" aria-hidden="true">
+              <span class="machine__switch"></span>
+              <span class="machine__foot machine__foot--left"></span>
+              <span class="machine__foot machine__foot--right"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script>
+      const setupCollapsible = ({
+        rootSelector,
+        toggleSelector,
+        panelSelector,
+        panelInnerSelector,
+        openClass,
+      }) => {
+        const roots = Array.from(document.querySelectorAll(rootSelector));
+
+        roots.forEach((rootEl) => {
+          const toggle = rootEl.querySelector(toggleSelector);
+          const panel = rootEl.querySelector(panelSelector);
+          const panelInner = rootEl.querySelector(panelInnerSelector);
+
+          if (!toggle || !panel || !panelInner) {
+            return;
+          }
+
+          const initialExpanded =
+            toggle.getAttribute("aria-expanded") === "true" ||
+            rootEl.classList.contains(openClass);
+
+          toggle.setAttribute("aria-expanded", String(initialExpanded));
+          rootEl.classList.toggle(openClass, initialExpanded);
+          panel.setAttribute("aria-hidden", String(!initialExpanded));
+          panelInner.inert = !initialExpanded;
+
+          toggle.addEventListener("click", () => {
+            const nextExpanded = toggle.getAttribute("aria-expanded") !== "true";
+
+            toggle.setAttribute("aria-expanded", String(nextExpanded));
+            rootEl.classList.toggle(openClass, nextExpanded);
+            panel.setAttribute("aria-hidden", String(!nextExpanded));
+            panelInner.inert = !nextExpanded;
+          });
+        });
+      };
+
+      setupCollapsible({
+        rootSelector: ".window",
+        toggleSelector: ".window__toggle",
+        panelSelector: ".window__panel",
+        panelInnerSelector: ".window__panel-inner",
+        openClass: "is-open",
+      });
+
+      setupCollapsible({
+        rootSelector: ".contact-fold",
+        toggleSelector: ".contact-fold__toggle",
+        panelSelector: ".contact-fold__panel",
+        panelInnerSelector: ".contact-fold__panel-inner",
+        openClass: "is-open",
+      });
+
+      const autoOpenMap = {
+        about: "about-toggle",
+        research: "research-toggle",
+        interests: "interests-toggle",
+        contact: "contact-toggle",
+        wechat: "wechat-contact-toggle",
+        rednote: "rednote-contact-toggle",
+      };
+
+      const requestedOpen = new URLSearchParams(window.location.search).get("open");
+
+      if (requestedOpen) {
+        requestedOpen
+          .split(",")
+          .map((item) => item.trim().toLowerCase())
+          .forEach((key) => {
+            const toggleId = autoOpenMap[key];
+            const toggle = toggleId ? document.getElementById(toggleId) : null;
+
+            if (toggle && toggle.getAttribute("aria-expanded") !== "true") {
+              toggle.click();
+            }
+          });
+      }
+    </script>
+  </body>
+</html>
