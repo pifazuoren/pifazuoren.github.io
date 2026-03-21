@@ -1019,6 +1019,10 @@
         grid-column: 1 / -1;
       }
 
+      .window--desknotes {
+        grid-column: 1 / -1;
+      }
+
       .identity {
         display: grid;
         gap: 0.25rem;
@@ -1118,6 +1122,10 @@
           transform 180ms ease,
           box-shadow 180ms ease,
           background-color 180ms ease;
+      }
+
+      .contact-direct__item--compact {
+        grid-template-columns: minmax(0, 1fr) auto;
       }
 
       .contact-direct__item:hover {
@@ -2150,6 +2158,54 @@
                         </div>
                       </div>
                       </section>
+
+                      <section class="window window--desknotes" aria-labelledby="desk-notes-toggle">
+                      <button
+                        class="window__toggle"
+                        id="desk-notes-toggle"
+                        type="button"
+                        aria-expanded="false"
+                        aria-controls="desk-notes-panel"
+                      >
+                        <span class="window__control" aria-hidden="true"></span>
+                        <span class="window__title">
+                          <span class="pixel-icon pixel-icon--note" aria-hidden="true">
+                            <svg viewBox="0 0 16 16">
+                              <use href="#pixel-icon-note"></use>
+                            </svg>
+                          </span>
+                          <span>Desk Notes</span>
+                        </span>
+                      </button>
+                      <div
+                        class="window__panel"
+                        id="desk-notes-panel"
+                        role="region"
+                        aria-labelledby="desk-notes-toggle"
+                      >
+                        <div class="window__panel-inner">
+                          <div class="window__body">
+                            <div class="contact-direct">
+                              <a
+                                class="contact-direct__item contact-direct__item--compact"
+                                href="./blog.html"
+                                aria-label="Open Desk Notes archive page"
+                              >
+                                <span class="contact-direct__label">
+                                  <span class="pixel-icon pixel-icon--doc" aria-hidden="true">
+                                    <svg viewBox="0 0 16 16">
+                                      <use href="#pixel-icon-doc"></use>
+                                    </svg>
+                                  </span>
+                                  <span>Archive</span>
+                                </span>
+                                <span class="contact-direct__action" aria-hidden="true">Open</span>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      </section>
                     </div>
                 </div>
               </div>
@@ -2238,6 +2294,8 @@
         research: "research-toggle",
         interests: "interests-toggle",
         contact: "contact-toggle",
+        blog: "desk-notes-toggle",
+        notes: "desk-notes-toggle",
         wechat: "wechat-contact-toggle",
         rednote: "rednote-contact-toggle",
       };
